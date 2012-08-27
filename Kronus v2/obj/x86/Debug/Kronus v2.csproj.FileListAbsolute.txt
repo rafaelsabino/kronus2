@@ -1,0 +1,39 @@
+c:\users\ediel\documents\visual studio 2010\Projects\Kronus v2\Kronus v2\bin\Debug\Kronus v2.exe
+c:\users\ediel\documents\visual studio 2010\Projects\Kronus v2\Kronus v2\bin\Debug\Kronus v2.pdb
+c:\users\ediel\documents\visual studio 2010\Projects\Kronus v2\Kronus v2\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\ediel\documents\visual studio 2010\Projects\Kronus v2\Kronus v2\obj\x86\Debug\Kronus_v2.Principal.resources
+c:\users\ediel\documents\visual studio 2010\Projects\Kronus v2\Kronus v2\obj\x86\Debug\Kronus_v2.Properties.Resources.resources
+c:\users\ediel\documents\visual studio 2010\Projects\Kronus v2\Kronus v2\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\ediel\documents\visual studio 2010\Projects\Kronus v2\Kronus v2\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\ediel\documents\visual studio 2010\Projects\Kronus v2\Kronus v2\obj\x86\Debug\Kronus v2.exe
+c:\users\ediel\documents\visual studio 2010\Projects\Kronus v2\Kronus v2\obj\x86\Debug\Kronus v2.pdb
+E:\C# Programs\Kronus v2\Kronus v2\obj\x86\Debug\Kronus v2.exe
+E:\C# Programs\Kronus v2\Kronus v2\bin\Debug\Kronus v2.exe
+E:\C# Programs\Kronus v2\Kronus v2\bin\Debug\Kronus v2.pdb
+E:\C# Programs\Kronus v2\Kronus v2\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\C# Programs\Kronus v2\Kronus v2\obj\x86\Debug\Kronus_v2.Principal.resources
+E:\C# Programs\Kronus v2\Kronus v2\obj\x86\Debug\Kronus_v2.Properties.Resources.resources
+E:\C# Programs\Kronus v2\Kronus v2\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\C# Programs\Kronus v2\Kronus v2\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\C# Programs\Kronus v2\Kronus v2\obj\x86\Debug\Kronus v2.pdb
+E:\C# Programs\Kronus v2\Kronus v2\obj\x86\Debug\Kronus_v2.login.resources
+E:\C# Programs\Kronus v2\Kronus v2\obj\x86\Debug\Kronus_v2.wfFornecedor.resources
+E:\C# Programs\Kronus v2\Kronus v2\obj\x86\Debug\Kronus_v2.wfItem.resources
+E:\C# Programs\Kronus v2\Kronus v2\obj\x86\Debug\Kronus_v2.Gui.wfCompra.resources
+E:\C# Programs\Kronus v2\Kronus v2\obj\x86\Debug\Kronus_v2.Gui.wfUsuario.resources
+E:\C# Programs\Kronus v2\Kronus v2\obj\x86\Debug\Kronus_v2.Gui.wfFuncionario.resources
+E:\C# Programs\kronus2\Kronus v2\obj\x86\Debug\Kronus v2.exe
+E:\C# Programs\kronus2\Kronus v2\obj\x86\Debug\Kronus v2.pdb
+E:\C# Programs\kronus2\Kronus v2\bin\Debug\Kronus v2.exe
+E:\C# Programs\kronus2\Kronus v2\bin\Debug\Kronus v2.pdb
+E:\C# Programs\kronus2\Kronus v2\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\C# Programs\kronus2\Kronus v2\obj\x86\Debug\Kronus_v2.Principal.resources
+E:\C# Programs\kronus2\Kronus v2\obj\x86\Debug\Kronus_v2.login.resources
+E:\C# Programs\kronus2\Kronus v2\obj\x86\Debug\Kronus_v2.Gui.wfCompra.resources
+E:\C# Programs\kronus2\Kronus v2\obj\x86\Debug\Kronus_v2.Gui.wfFuncionario.resources
+E:\C# Programs\kronus2\Kronus v2\obj\x86\Debug\Kronus_v2.Gui.wfUsuario.resources
+E:\C# Programs\kronus2\Kronus v2\obj\x86\Debug\Kronus_v2.Properties.Resources.resources
+E:\C# Programs\kronus2\Kronus v2\obj\x86\Debug\Kronus_v2.wfFornecedor.resources
+E:\C# Programs\kronus2\Kronus v2\obj\x86\Debug\Kronus_v2.wfItem.resources
+E:\C# Programs\kronus2\Kronus v2\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\C# Programs\kronus2\Kronus v2\obj\x86\Debug\GenerateResource.write.1.tlog
