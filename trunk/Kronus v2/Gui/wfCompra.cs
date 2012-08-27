@@ -1,0 +1,457 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace Kronus_v2.Gui
+{
+    public partial class wfCompra : Form
+    {
+        public wfCompra()
+        {
+            InitializeComponent();
+        }
+
+        private void wfCompra_Load(object sender, EventArgs e)
+        {
+            inicial();
+                    
+            
+        }
+
+        public void cargaComboItemCompra() {
+            br.model.clsItem i = new br.model.clsItem();
+            try
+            {
+                this.cbItemCompra.DataSource = i.retornaItemComboCompra();                                   
+                this.cbItemCompra.DisplayMember = ("nome_item");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            
+        }
+
+
+        public void inicial() {
+            if (tcCompra.SelectedIndex == 0)
+            {
+                txtCodigo.Enabled = true;                
+                limpaCampos();
+                lbCodigo.Visible = true;
+                txtCodigo.Visible = true;
+                txtValor.Visible = true;
+                dtpDataCompra.Visible = true;
+                dtpDataCompra.Enabled = true;
+                dtpDataCompra.Value = DateTime.Today;
+                dtpDataCompra.Enabled = false;
+                txtNumero.Visible = true;
+                lbData.Visible = true;
+                lbNumero.Visible = true;
+                lbValor.Visible = true;
+                txtCodigo.Enabled = false;
+                txtNumero.Enabled = false;
+                txtValor.Enabled = false;
+                dtpDataCompra.Enabled = false;
+                txtNumero.CausesValidation = false;
+                txtValor.CausesValidation = false;
+                dtpDataCompra.CausesValidation = false;
+                lbConsulta.Visible = false;
+                dtpInicial.Visible = false;
+                dtpFinal.Visible = false;
+                btConsultaCompra.Visible = false;
+                btCancelar.Enabled = false;
+                btEditar.Enabled = false;
+                btSalvar.Enabled = false;
+                btConsultaGeral.Enabled = true;
+                errorProvider1.SetError(this.txtNumero, String.Empty);
+                errorProvider1.SetError(this.dtpDataCompra, String.Empty);
+                errorProvider1.SetError(this.txtValor, String.Empty);
+                cargaGrid();
+                cargaGridNota();
+            }
+            else { 
+                if(tcCompra.SelectedIndex == 1){
+                    limpaCampos();
+                    cargaComboItemCompra();
+                    cbItemCompra.Text = "                ";
+                    cbItemCompra.Enabled = false;
+                    cbDescricaoCompra.Text = "                ";
+                    cbDescricaoCompra.Enabled = false;
+                    cbTamanhoItem.Text = "                ";
+                    cbTamanhoItem.Enabled = false;
+                    txtQtdCompra.Text = String.Empty;
+                    txtQtdCompra.Enabled = false;
+                    txtValorUnitario.Text = String.Empty;
+                    txtValorUnitario.Enabled = false;
+                    btEditar.Enabled = false;
+                                        
+                }            
+            }
+            
+        }
+
+
+
+        public void limpaCampos() {
+            txtCodigo.Text = String.Empty;
+            txtNumero.Text = String.Empty;
+            txtValor.Text = String.Empty;
+        }
+
+        public void cargaGrid() {
+            br.model.clsCompra c = new br.model.clsCompra();
+            try
+            {
+                dgCompra.DataSource = c.searchCompra();
+                dgCompra.Columns["Valor compra"].DefaultCellStyle.Format = "C2";
+                dgCompra.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            
+        }
+
+        private void btNovo_Click(object sender, EventArgs e)
+        {
+            inicial();
+            cadastrar();
+
+        }
+
+        public void cadastrar() {
+            btCancelar.Enabled = true;
+            if(tcCompra.SelectedIndex == 0){
+                lbCodigo.Visible = false;
+                dtpDataCompra.Enabled = true;
+                dtpDataCompra.Value = DateTime.Today;
+                dtpInicial.Value = DateTime.Today;
+                dtpFinal.Value = DateTime.Today;
+                dtpDataCompra.MaxDate = DateTime.Today;
+                txtCodigo.Visible = false;
+                txtNumero.Enabled = true;
+                dtpDataCompra.Enabled = true;
+                txtValor.Enabled = true;
+                btConsultaGeral.Enabled = false;
+                txtNumero.CausesValidation = true;
+                txtValor.CausesValidation = true;
+                dtpDataCompra.CausesValidation = true;
+                txtNumero.Focus();                           
+            }else{
+                if(tcCompra.SelectedIndex == 1){
+                    cbItemCompra.Enabled = true;
+                    cbItemCompra.Text = "                     E. P. I                 ";
+                    cbDescricaoCompra.Enabled = true;
+                    cbDescricaoCompra.Text = "                Descrição                 ";
+                    cbTamanhoItem.Enabled = true;
+                    cbTamanhoItem.Text = " Tamanho";
+                    txtQtdCompra.Enabled = true;
+                    txtValorUnitario.Enabled = true;
+                }
+            }
+         }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            inicial();
+        }
+
+        private void btConsultaGeral_Click(object sender, EventArgs e)
+        {
+            btCancelar.Enabled = true;
+            btConsultaGeral.Enabled = false;
+            if(tcCompra.SelectedIndex == 0){
+                dtpFinal.MaxDate = DateTime.Today;
+                dtpInicial.MaxDate = DateTime.Today;
+                limpaCampos();
+                dtpInicial.Value = DateTime.Today;
+                dtpFinal.Value    = DateTime.Today;
+                txtValor.CausesValidation = false;
+                txtNumero.CausesValidation = false;
+                dtpDataCompra.CausesValidation = false;
+                lbCodigo.Visible = false;
+                txtCodigo.Visible = false;
+                txtNumero.Visible = false;
+                txtValor.Visible = false;
+                lbData.Visible = false;
+                lbNumero.Visible = false;
+                lbValor.Visible = false;
+                dtpDataCompra.Visible = false;
+                lbConsulta.Visible = true;
+                dtpInicial.Visible = true;
+                dtpFinal.Visible = true;
+                btConsultaCompra.Visible = true;
+                dtpInicial.CausesValidation = true;
+                dtpFinal.CausesValidation = true;
+            }
+        }
+
+        private void btConsultaCompra_Click(object sender, EventArgs e)
+        {            
+           
+            TimeSpan ts = dtpFinal.Value.Subtract(dtpInicial.Value);
+            if (ts.Days <= 0)
+            {
+                MessageBox.Show("A data inicial deve ser inferior a data final.", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpInicial.Value=DateTime.Today;
+                dtpFinal.Value = DateTime.Today;
+            }
+            else {
+                br.model.clsCompra c = new br.model.clsCompra();
+                dgCompra.DataSource = c.searchCompra("data_compra between '" + dtpInicial.Value + "' and '" + dtpFinal.Value + "'");
+            }
+           
+        }
+
+        private void txtNumero_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtNumero.Text) || !br.model.clsCompra.validaNumber(txtNumero.Text))
+            {
+                errorProvider1.SetError(this.txtNumero, "Informe o número da nota fiscal.\nEle deve ser apenas número.");
+                txtNumero.Text = String.Empty;
+                btSalvar.Enabled = false;
+                txtNumero.Focus();
+            }
+            else {
+                errorProvider1.SetError(this.txtNumero, String.Empty);
+            }
+        }
+
+        private void txtValor_Validating(object sender, CancelEventArgs e)
+        {
+            if (!br.model.clsCompra.validaMoney(txtValor.Text) || String.IsNullOrEmpty(txtValor.Text))
+            {
+                errorProvider1.SetError(this.txtValor, "Informe o valor da nota fiscal.\nEle deve ser apenas números em formato de moeda corrente.");
+                txtValor.Text = String.Empty;
+                btSalvar.Enabled = false;
+                txtValor.Focus();
+            }
+            else {
+                Double valor;
+                if(Double.TryParse(this.txtValor.Text, System.Globalization.NumberStyles.Currency, null, out valor)){
+                    errorProvider1.SetError(this.txtValor, String.Empty);
+                    btSalvar.Enabled = true;   
+                }               
+            }
+        }
+
+        private void btSalvar_Click(object sender, EventArgs e)
+        {
+            if(tcCompra.SelectedIndex == 0){
+                
+                if (String.IsNullOrEmpty(txtCodigo.Text))
+                {
+                    br.model.clsCompra c = new br.model.clsCompra();
+                    try
+                    {                        
+                        c.NotaFiscal = Convert.ToInt32(this.txtNumero.Text);
+                        c.ValorNota = txtValor.Text.Replace(",", ".");
+                        c.DataCompra = Convert.ToDateTime(this.dtpDataCompra.Value.ToShortDateString());
+                        c.addCompra();
+                        MessageBox.Show("Compra adicionada com sucesso.", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        inicial();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        throw;
+                    }
+                }
+                else {
+                    br.model.clsCompra c = new br.model.clsCompra(txtCodigo.Text);
+                    try
+                    {
+                        c.NotaFiscal = Convert.ToInt32(this.txtNumero.Text);
+                        c.ValorNota = txtValor.Text.Replace(",", ".");
+                        c.DataCompra = Convert.ToDateTime(this.dtpDataCompra.Value.ToShortDateString());
+                        c.addCompra();
+                        MessageBox.Show("Compra atualizada com sucesso.", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        inicial();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        throw;
+                    }
+                }               
+            }
+        }
+
+        
+        private void dtpDataCompra_Validating_1(object sender, CancelEventArgs e)
+        {
+           
+            if (dtpDataCompra.Value > dtpDataCompra.MaxDate)
+            {
+                errorProvider1.SetError(this.dtpDataCompra, "A data da compra não pode ser superior a " + DateTime.Today + ".");
+                dtpDataCompra.Select();
+            }
+            else {
+                errorProvider1.SetError(this.dtpDataCompra, String.Empty);
+            }
+        }
+
+        private void dgCompra_DoubleClick(object sender, EventArgs e)
+        {
+            carregaObjeto();
+        }
+
+        public void carregaObjeto() {
+            br.model.clsCompra c = new br.model.clsCompra();
+            btConsultaGeral.Enabled = false;
+            lbCodigo.Visible = true;
+            txtCodigo.Visible = true;
+            txtNumero.Enabled = false;
+            txtValor.Enabled = false;
+            dtpDataCompra.Enabled = false;
+            txtNumero.CausesValidation = false;
+            txtValor.CausesValidation = false;
+            lbConsulta.Visible = false;
+            dtpInicial.Visible = false;
+            dtpFinal.Visible = false;
+            dtpDataCompra.Visible = true;
+            lbData.Visible = true;
+            txtNumero.Visible = true;
+            lbNumero.Visible = true;
+            lbValor.Visible = true;
+            txtValor.Visible = true;
+            btConsultaCompra.Visible = false;
+            errorProvider1.SetError(this.txtNumero, String.Empty);
+            errorProvider1.SetError(this.txtValor, String.Empty);
+            txtCodigo.Text = dgCompra.Rows[dgCompra.CurrentRow.Index].Cells[0].Value.ToString();
+            dtpDataCompra.Value = Convert.ToDateTime(dgCompra.Rows[dgCompra.CurrentRow.Index].Cells[1].Value);
+            txtNumero.Text = dgCompra.Rows[dgCompra.CurrentRow.Index].Cells[2].Value.ToString();
+            txtValor.Text = dgCompra.Rows[dgCompra.CurrentRow.Index].Cells[3].Value.ToString();
+            btEditar.Enabled = true;
+            btCancelar.Enabled = true;
+            cargaGrid();
+                       
+        }
+
+        public void cargaGridNota(){
+            br.model.clsNotaFiscal nf = new br.model.clsNotaFiscal();            
+            
+            dgNota.DataSource = nf.searchNota("nota_fiscal_fk = '" + txtNumero.Text + "'");
+            dgNota.Columns["Valor item"].DefaultCellStyle.Format="C2";
+            dgNota.Refresh();
+        }
+
+        private void btEditar_Click(object sender, EventArgs e)
+        {
+            if(tcCompra.SelectedIndex == 0){
+                btEditar.Enabled = false;
+                //txtNumero.Enabled = true;
+                dtpDataCompra.Enabled = true;
+                txtValor.Enabled = true;
+                btSalvar.Enabled = true;
+            }
+
+        }
+
+        private void tcCompra_Click(object sender, EventArgs e)
+        {
+            txtValor.Enabled = false;
+            dtpDataCompra.Enabled = false;
+        }
+
+       
+       
+        public void cargaComboTamanho() {
+            br.model.clsItem i = new br.model.clsItem();
+            try
+            {
+                cbTamanhoItem.DataSource = i.retornaTamanhoCompra("tipo_item = '" + cbDescricaoCompra.Text + "'");
+                cbTamanhoItem.DisplayMember = ("tamanho_item");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+            
+        }
+        public void cargaComboDescricao() {
+            br.model.clsItem i = new br.model.clsItem();
+            try
+            {
+                cbDescricaoCompra.DataSource = i.retornaDescricaoCompra("nome_item = '"+ cbItemCompra.Text + "'");
+                cbDescricaoCompra.DisplayMember=("tipo_item");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
+
+       
+
+        private void tcCompra_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargaGridNota();
+            inicial();
+            
+        }
+
+        private void cbItemCompra_Validating(object sender, CancelEventArgs e)
+        {
+            if (cbItemCompra.Text == "                     E. P. I                 ")
+            {
+                errorProvider1.SetError(this.cbItemCompra, "selecione o E. P. I.");
+                cbItemCompra.Focus();
+            }
+            else {
+                errorProvider1.SetError(this.cbItemCompra, String.Empty);
+                cargaComboDescricao();
+                cbDescricaoCompra.Text = "                Descrição             ";
+            }
+        }
+
+        private void cbDescricaoCompra_Validating(object sender, CancelEventArgs e)
+        {
+            if (cbDescricaoCompra.Text == "                Descrição                 ")
+            {
+                errorProvider1.SetError(this.cbDescricaoCompra, "Selecione a descrição do E. P. I.");
+                cbDescricaoCompra.Select();
+            }
+            else {
+                errorProvider1.SetError(this.cbDescricaoCompra, String.Empty);
+                cargaComboTamanho();
+                cbTamanhoItem.Text = " Tamanho";
+            }
+        }
+
+        private void cbTamanhoItem_Validating(object sender, CancelEventArgs e)
+        {
+            if (cbTamanhoItem.Text == " Tamanho")
+            {
+                errorProvider1.SetError(this.cbTamanhoItem, "Selecione o temanho do E. P. I.");
+                cbTamanhoItem.Select();
+            }
+            else {
+                errorProvider1.SetError(this.cbTamanhoItem, String.Empty);
+
+            }
+        }
+
+
+                  
+
+      
+
+       
+
+             
+
+        
+    }
+}
