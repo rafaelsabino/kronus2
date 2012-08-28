@@ -86,6 +86,16 @@ namespace Kronus_v2.Gui
                     cbDescricaoCompra.Enabled = false;
                     cbTamanhoItem.Text = "                ";
                     cbTamanhoItem.Enabled = false;
+                    cbItemCompra.CausesValidation = false;
+                    cbDescricaoCompra.CausesValidation = false;
+                    cbTamanhoItem.CausesValidation = false;
+                    txtQtdCompra.CausesValidation = false;
+                    txtValorUnitario.CausesValidation = false;
+                    errorProvider1.SetError(this.cbItemCompra, String.Empty);
+                    errorProvider1.SetError(this.cbDescricaoCompra, String.Empty);
+                    errorProvider1.SetError(this.cbTamanhoItem, String.Empty);
+                    errorProvider1.SetError(this.txtQtdCompra, String.Empty);
+                    errorProvider1.SetError(this.txtValorUnitario, String.Empty);
                     txtQtdCompra.Text = String.Empty;
                     txtQtdCompra.Enabled = false;
                     txtValorUnitario.Text = String.Empty;
@@ -151,12 +161,18 @@ namespace Kronus_v2.Gui
                     cbItemCompra.Enabled = true;
                     cbItemCompra.Text = "                     E. P. I                 ";
                     cbDescricaoCompra.Enabled = true;
-                    cbDescricaoCompra.Text = "                Descrição                 ";
+                    cbDescricaoCompra.Text = "                Descrição             ";
                     cbTamanhoItem.Enabled = true;
                     cbTamanhoItem.Text = " Tamanho";
                     txtQtdCompra.Enabled = true;
                     txtValorUnitario.Enabled = true;
-                }
+                    cbItemCompra.CausesValidation = true;
+                    cbDescricaoCompra.CausesValidation = true;
+                    cbTamanhoItem.CausesValidation = true;
+                    txtQtdCompra.CausesValidation = true;
+                    txtValorUnitario.CausesValidation = true;
+                    cbItemCompra.Select();
+                }                
             }
          }
 
@@ -406,8 +422,9 @@ namespace Kronus_v2.Gui
         {
             if (cbItemCompra.Text == "                     E. P. I                 ")
             {
-                errorProvider1.SetError(this.cbItemCompra, "selecione o E. P. I.");
+                errorProvider1.SetError(this.cbItemCompra, "Selecione o E. P. I.");
                 cbItemCompra.Focus();
+                btSalvar.Enabled = false;
             }
             else {
                 errorProvider1.SetError(this.cbItemCompra, String.Empty);
@@ -418,10 +435,11 @@ namespace Kronus_v2.Gui
 
         private void cbDescricaoCompra_Validating(object sender, CancelEventArgs e)
         {
-            if (cbDescricaoCompra.Text == "                Descrição                 ")
+            if (cbDescricaoCompra.Text == "                Descrição             ")
             {
                 errorProvider1.SetError(this.cbDescricaoCompra, "Selecione a descrição do E. P. I.");
                 cbDescricaoCompra.Select();
+                btSalvar.Enabled = false;
             }
             else {
                 errorProvider1.SetError(this.cbDescricaoCompra, String.Empty);
@@ -436,10 +454,44 @@ namespace Kronus_v2.Gui
             {
                 errorProvider1.SetError(this.cbTamanhoItem, "Selecione o temanho do E. P. I.");
                 cbTamanhoItem.Select();
+                btSalvar.Enabled = false;
             }
             else {
                 errorProvider1.SetError(this.cbTamanhoItem, String.Empty);
 
+            }
+        }
+
+        private void txtQtdCompra_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtQtdCompra.Text) || !br.model.clsCompra.validaNumber(txtQtdCompra.Text))
+            {
+                errorProvider1.SetError(this.txtQtdCompra, "Informe a quantidade comprada.\nEla deve ser apenas números.");
+                txtQtdCompra.Select();
+                txtQtdCompra.Text = String.Empty;
+                btSalvar.Enabled = false;
+            }
+            else {
+                errorProvider1.SetError(this.txtQtdCompra, String.Empty);
+            }
+        }
+
+        private void txtValorUnitario_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtValorUnitario.Text) || !br.model.clsCompra.validaMoney(txtValorUnitario.Text))
+            {
+                errorProvider1.SetError(this.txtValorUnitario, "Informe o valor do e. p. i.\nEste deve ser apenas números;");
+                txtValor.Text = String.Empty;
+                btSalvar.Enabled = false;
+                txtValor.Select();
+            }
+            else {
+                Double valor;
+                if(Double.TryParse(this.txtValorUnitario.Text, System.Globalization.NumberStyles.Currency, null, out valor)){
+                    errorProvider1.SetError(this.txtValorUnitario, String.Empty);
+                    btSalvar.Enabled = true;
+                }
+                
             }
         }
 
