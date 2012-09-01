@@ -122,7 +122,7 @@ namespace Kronus_v2
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        throw;
+                        inicial();
                     }
                 }
                               
@@ -168,7 +168,7 @@ namespace Kronus_v2
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
+                    inicial();
                 }
                 
             }
@@ -231,7 +231,7 @@ namespace Kronus_v2
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
+                    inicial();
                 }
                 dgFornec.Refresh();
                 
