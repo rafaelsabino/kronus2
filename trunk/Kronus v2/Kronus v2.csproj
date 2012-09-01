@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="br.data\clsDataBaseConnection.cs" />
     <Compile Include="br.model\clsCompra.cs" />
+    <Compile Include="br.model\clsEntrega.cs" />
     <Compile Include="br.model\clsFornecedor.cs" />
     <Compile Include="br.model\clsFuncionario.cs" />
     <Compile Include="br.model\clsItem.cs" />
