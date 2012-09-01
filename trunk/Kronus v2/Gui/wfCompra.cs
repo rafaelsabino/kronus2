@@ -160,20 +160,28 @@ namespace Kronus_v2.Gui
                 txtNumero.Focus();                           
             }else{
                 if(tcCompra.SelectedIndex == 1){
-                    cbItemCompra.Enabled = true;
-                    cbItemCompra.Text = "                     E. P. I                 ";
-                    cbDescricaoCompra.Enabled = true;
-                    cbDescricaoCompra.Text = "                Descrição             ";
-                    cbTamanhoItem.Enabled = true;
-                    cbTamanhoItem.Text = " Tamanho";
-                    txtQtdCompra.Enabled = true;
-                    txtValorUnitario.Enabled = true;
-                    cbItemCompra.CausesValidation = true;
-                    cbDescricaoCompra.CausesValidation = true;
-                    cbTamanhoItem.CausesValidation = true;
-                    txtQtdCompra.CausesValidation = true;
-                    txtValorUnitario.CausesValidation = true;
-                    cbItemCompra.Select();
+                    if (String.IsNullOrEmpty(txtNumero.Text))
+                    {
+                        MessageBox.Show("Não existe uma nota fiscal a ser preenchida!\nSelecionar a nota fiscal para realizar o cadastro dos itens da compra!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        tcCompra.SelectedIndex = 0;
+                        inicial();
+                    }
+                    else {
+                        cbItemCompra.Enabled = true;
+                        cbItemCompra.Text = "                     E. P. I                 ";
+                        cbDescricaoCompra.Enabled = true;
+                        cbDescricaoCompra.Text = "                Descrição             ";
+                        cbTamanhoItem.Enabled = true;
+                        cbTamanhoItem.Text = " Tamanho";
+                        txtQtdCompra.Enabled = true;
+                        txtValorUnitario.Enabled = true;
+                        cbItemCompra.CausesValidation = true;
+                        cbDescricaoCompra.CausesValidation = true;
+                        cbTamanhoItem.CausesValidation = true;
+                        txtQtdCompra.CausesValidation = true;
+                        txtValorUnitario.CausesValidation = true;
+                        cbItemCompra.Select();
+                    }                    
                 }                
             }
          }
@@ -402,11 +410,20 @@ namespace Kronus_v2.Gui
         private void btEditar_Click(object sender, EventArgs e)
         {
             if(tcCompra.SelectedIndex == 0){
-                btEditar.Enabled = false;
-                //txtNumero.Enabled = true;
-                dtpDataCompra.Enabled = true;
-                txtValor.Enabled = true;
-                btSalvar.Enabled = true;
+                br.data.clsDataBaseConnection  bd = new br.data.clsDataBaseConnection();
+                DataTable dt = bd.retornaDataTable("Select * from notaFiscal where nota_fiscal_fk = '" + txtNumero.Text + "'");
+                if(dt.Rows.Count > 0){
+                    btEditar.Enabled = false;                
+                    dtpDataCompra.Enabled = true;
+                    txtValor.Enabled = true;
+                    btSalvar.Enabled = true;
+                }else{
+                    btEditar.Enabled = false;
+                    txtNumero.Enabled = true;
+                    dtpDataCompra.Enabled = true;
+                    txtValor.Enabled = true;
+                    btSalvar.Enabled = true;
+                }               
             }
 
         }
