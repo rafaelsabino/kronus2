@@ -33,13 +33,14 @@ namespace Kronus_v2.Gui
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                inicial();
             }
             
         }
 
 
         public void inicial() {
+            btDelete.Visible = false;
             if (tcCompra.SelectedIndex == 0)
             {
                 txtCodigo.Enabled = true;                
@@ -78,17 +79,17 @@ namespace Kronus_v2.Gui
             }
             else { 
                 if(tcCompra.SelectedIndex == 1){
-                    limpaCampos();
+                    
                     cargaComboItemCompra();
                     cbItemCompra.Text = "                ";
-                    cbItemCompra.Enabled = false;
+                    cbItemCompra.Enabled = false;                                   
                     cbDescricaoCompra.Text = "                ";
-                    cbDescricaoCompra.Enabled = false;
+                    cbDescricaoCompra.Enabled = false;                              
                     cbTamanhoItem.Text = "                ";
-                    cbTamanhoItem.Enabled = false;
+                    cbTamanhoItem.Enabled = false;                                   
                     cbItemCompra.CausesValidation = false;
-                    cbDescricaoCompra.CausesValidation = false;
-                    cbTamanhoItem.CausesValidation = false;
+                    cbDescricaoCompra.CausesValidation = false;                       
+                    cbTamanhoItem.CausesValidation = false;                           
                     txtQtdCompra.CausesValidation = false;
                     txtValorUnitario.CausesValidation = false;
                     errorProvider1.SetError(this.cbItemCompra, String.Empty);
@@ -101,6 +102,7 @@ namespace Kronus_v2.Gui
                     txtValorUnitario.Text = String.Empty;
                     txtValorUnitario.Enabled = false;
                     btEditar.Enabled = false;
+                    cargaGridNota();
                                         
                 }            
             }
@@ -126,7 +128,7 @@ namespace Kronus_v2.Gui
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                inicial();
             }
             
         }
@@ -246,7 +248,7 @@ namespace Kronus_v2.Gui
         {
             if (!br.model.clsCompra.validaMoney(txtValor.Text) || String.IsNullOrEmpty(txtValor.Text))
             {
-                errorProvider1.SetError(this.txtValor, "Informe o valor da nota fiscal.\nEle deve ser apenas números em formato de moeda corrente.");
+                errorProvider1.SetError(this.txtValor, "Informe o valor da nota fiscal.\nEle deve ser apenas números em formato de moeda corrente,\nseparando apenas os centavos.");
                 txtValor.Text = String.Empty;
                 btSalvar.Enabled = false;
                 txtValor.Focus();
@@ -262,13 +264,14 @@ namespace Kronus_v2.Gui
 
         private void btSalvar_Click(object sender, EventArgs e)
         {
-            if(tcCompra.SelectedIndex == 0){
-                
+            if (tcCompra.SelectedIndex == 0)
+            {
+
                 if (String.IsNullOrEmpty(txtCodigo.Text))
                 {
                     br.model.clsCompra c = new br.model.clsCompra();
                     try
-                    {                        
+                    {
                         c.NotaFiscal = Convert.ToInt32(this.txtNumero.Text);
                         c.ValorNota = txtValor.Text.Replace(",", ".");
                         c.DataCompra = Convert.ToDateTime(this.dtpDataCompra.Value.ToShortDateString());
@@ -279,10 +282,11 @@ namespace Kronus_v2.Gui
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        throw;
+                        inicial();
                     }
                 }
-                else {
+                else
+                {
                     br.model.clsCompra c = new br.model.clsCompra(txtCodigo.Text);
                     try
                     {
@@ -296,9 +300,42 @@ namespace Kronus_v2.Gui
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        throw;
+                        inicial();
                     }
-                }               
+                }
+            }
+            else { 
+                if(tcCompra.SelectedIndex == 1){
+                   
+                    br.model.clsNotaFiscal nf = new br.model.clsNotaFiscal();
+                    br.data.clsDataBaseConnection i = new br.data.clsDataBaseConnection();
+                    DataTable dt = i.retornaDataTable("select cod_item from item where nome_item = '" + cbItemCompra.Text +
+                        "' and tipo_item = '" + cbDescricaoCompra.Text + "' and tamanho_item = '" + cbTamanhoItem.Text + "'" );
+                    String cod = dt.Rows[0]["cod_item"].ToString();
+
+                   
+                    try
+                    {
+                        nf.NotaFiscal = Convert.ToInt32(txtNumero.Text);
+                        nf.CodItemFk = Convert.ToInt32(cod);
+                        nf.TipoItem = cbDescricaoCompra.Text;
+                        nf.TamanhoItem = cbTamanhoItem.Text;
+                        nf.QuantidadeCompra = Convert.ToInt32(txtQtdCompra.Text);
+                        nf.ValorUnitario = txtValorUnitario.Text.Replace(",", ".");
+                        txtNumero.Enabled = false;
+                        nf.addItemNota();
+                        MessageBox.Show("Item adicionado!", "Kornus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cargaGridNota();
+                        inicial();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("O item informado já está cadastrado na nota atual!","Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        inicial();
+                        
+                    }
+                    
+                }
             }
         }
 
@@ -350,6 +387,7 @@ namespace Kronus_v2.Gui
             btEditar.Enabled = true;
             btCancelar.Enabled = true;
             cargaGrid();
+            cargaGridNota();
                        
         }
 
@@ -390,8 +428,8 @@ namespace Kronus_v2.Gui
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                inicial();
             }
             
         }
@@ -405,7 +443,7 @@ namespace Kronus_v2.Gui
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message,"Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                inicial();
             }
         }
 
@@ -478,9 +516,9 @@ namespace Kronus_v2.Gui
 
         private void txtValorUnitario_Validating(object sender, CancelEventArgs e)
         {
-            if (String.IsNullOrEmpty(txtValorUnitario.Text) || !br.model.clsCompra.validaMoney(txtValorUnitario.Text))
+            if (String.IsNullOrEmpty(txtValorUnitario.Text) || ! br.model.clsCompra.validaMoney(txtValorUnitario.Text))
             {
-                errorProvider1.SetError(this.txtValorUnitario, "Informe o valor do e. p. i.\nEste deve ser apenas números;");
+                errorProvider1.SetError(this.txtValorUnitario, "Informe o valor do e. p. i.\nEle deve ser apenas números em formato de moeda corrente,\nseparando apenas os centavos.");
                 txtValor.Text = String.Empty;
                 btSalvar.Enabled = false;
                 txtValor.Select();
@@ -495,11 +533,70 @@ namespace Kronus_v2.Gui
             }
         }
 
+        private void tcCompra_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            inicial();
+            cargaGridNota();
+        }
 
-                  
+        private void dgNota_DoubleClick(object sender, EventArgs e)
+        {
+            cbItemCompra.CausesValidation = false;
+            cbDescricaoCompra.CausesValidation = false;
+            cbTamanhoItem.CausesValidation = false;
+            txtQtdCompra.CausesValidation = false;
+            txtValorUnitario.CausesValidation = false;
+            cbItemCompra.Enabled = false;
+            cbDescricaoCompra.Enabled = false;
+            cbTamanhoItem.Enabled = false;
+            txtQtdCompra.Enabled = false;
+            txtValorUnitario.Enabled = false;
+            errorProvider1.SetError(this.cbItemCompra, String.Empty);
+            errorProvider1.SetError(this.cbDescricaoCompra, String.Empty);
+            errorProvider1.SetError(this.cbTamanhoItem, String.Empty);
+            errorProvider1.SetError(this.txtQtdCompra, String.Empty);
+            errorProvider1.SetError(this.txtValorUnitario, String.Empty);
+            
+            carregaNota();
+            btDelete.Visible = true;
+            
+        }
 
-      
+        public void carregaNota() {
 
+            cbItemCompra.Text = dgNota.Rows[dgNota.CurrentRow.Index].Cells[1].Value.ToString();
+            cbDescricaoCompra.Text = dgNota.Rows[dgNota.CurrentRow.Index].Cells[2].Value.ToString();
+            cbTamanhoItem.Text = dgNota.Rows[dgNota.CurrentRow.Index].Cells[3].Value.ToString();
+            txtValorUnitario.Text=dgNota.Rows[dgNota.CurrentRow.Index].Cells[4].Value.ToString();
+            txtQtdCompra.Text = dgNota.Rows[dgNota.CurrentRow.Index].Cells[5].Value.ToString();
+
+            
+        }
+
+        private void btDelete_Click(object sender, EventArgs e)
+        {
+            br.model.clsNotaFiscal nf = new br.model.clsNotaFiscal();
+            br.data.clsDataBaseConnection i = new br.data.clsDataBaseConnection();
+
+            DataTable dt = i.retornaDataTable("Select cod_item from Item where nome_item = '" + cbItemCompra.Text + 
+                "' and tipo_item = '" + cbDescricaoCompra.Text + "' and tamanho_item = '" + cbTamanhoItem.Text + "'");
+            int cod = Convert.ToInt32(dt.Rows[0]["cod_item"]);
+            try
+            {
+                nf.CodItemFk = cod;
+                if (MessageBox.Show("Tem certeza que deseja excluir o E. P. I selecionado da nota fiscal?", "Kronus", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes) {
+                    nf.deleteNota();
+                    inicial();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                inicial();
+            }   
+        }
+
+                 
        
 
              

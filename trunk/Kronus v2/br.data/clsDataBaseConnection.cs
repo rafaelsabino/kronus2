@@ -81,7 +81,7 @@ namespace Kronus_v2.br.data
         }
 
         public static bool validaMoney(String texto) {
-            Regex rx = new Regex("^[1-9,.]*$");
+            Regex rx = new Regex("^[0-9,.]*$");
             return rx.IsMatch(texto);
         }
 

@@ -11,7 +11,7 @@ namespace Kronus_v2.br.model
 
         private int nota;
         private int item;
-        private Double valorItem;
+        private String valorItem;
         private int qtdCompra;
         private String tamanhoItemCompra;
         private String tipoItemCompra;        
@@ -30,7 +30,7 @@ namespace Kronus_v2.br.model
             set { item = value; }
         }
 
-        public Double ValorUnitario {
+        public String ValorUnitario {
             get { return valorItem; }
             set { valorItem = value; }
         }
@@ -73,8 +73,14 @@ namespace Kronus_v2.br.model
         }
 
         public int addItemNota() {
-            String sql = "insert into notaFiscal (nota_fiscal_fk, cod_item_fk, valor_unitario, quantidade_compra tamanho_item_compra, tipo_item_compra)"+
+            String sql = "insert into notaFiscal (nota_fiscal_fk, cod_item_fk, valor_unitario, quantidade_compra, tamanho_item_compra, tipo_item_compra)"+
                 "values('" + nota + "', '" + item + "', '" + valorItem + "', '" + qtdCompra + "', '" + tamanhoItemCompra + "', '" + tipoItemCompra +"')";
+            int result = executaSql(sql);
+            return result;
+        }
+
+        public int deleteNota() {
+            String sql = "delete from notaFiscal where cod_item_fk = '" + item + "'";
             int result = executaSql(sql);
             return result;
         }
