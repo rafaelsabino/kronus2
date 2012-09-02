@@ -187,6 +187,7 @@
             this.entregasToolStripMenuItem.Name = "entregasToolStripMenuItem";
             this.entregasToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.entregasToolStripMenuItem.Text = "Entregas";
+            this.entregasToolStripMenuItem.Click += new System.EventHandler(this.entregasToolStripMenuItem_Click);
             // 
             // relatóriosToolStripMenuItem
             // 
