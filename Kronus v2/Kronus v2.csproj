@@ -52,6 +52,7 @@
     <Compile Include="br.model\clsFornecedor.cs" />
     <Compile Include="br.model\clsFuncionario.cs" />
     <Compile Include="br.model\clsItem.cs" />
+    <Compile Include="br.model\clslogEntrega.cs" />
     <Compile Include="br.model\clsNotaFiscal.cs" />
     <Compile Include="br.model\clsUsuário.cs" />
     <Compile Include="Gui\Form1.cs">
@@ -71,6 +72,12 @@
     </Compile>
     <Compile Include="Gui\wfCompra.Designer.cs">
       <DependentUpon>wfCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\wfEntrega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\wfEntrega.Designer.cs">
+      <DependentUpon>wfEntrega.cs</DependentUpon>
     </Compile>
     <Compile Include="Gui\wfFuncionario.cs">
       <SubType>Form</SubType>
@@ -107,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\wfCompra.resx">
       <DependentUpon>wfCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\wfEntrega.resx">
+      <DependentUpon>wfEntrega.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\wfFuncionario.resx">
       <DependentUpon>wfFuncionario.cs</DependentUpon>

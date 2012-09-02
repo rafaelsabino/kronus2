@@ -71,6 +71,11 @@ namespace Kronus_v2
             utilCls.OpenForm(this, new Gui.wfFuncionario());
         }
 
+        private void entregasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            utilCls.OpenForm(this, new Gui.wfEntrega());
+        }
+
                             
     }
 }
