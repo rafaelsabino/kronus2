@@ -131,20 +131,20 @@ namespace Kronus_v2.br.model
             DataTable dt = retornaDataTable(sql);
             return dt;
         }
-
+        //metodo para carregar combobox item compra e entrega
         public DataTable retornaItemComboCompra() {
             String sql = "select distinct nome_item from Item";
             DataTable dt = retornaDataTable(sql);
             return dt;
         }
-
+        //metodo para carregar combobox descricao compra e entrega
         public DataTable retornaDescricaoCompra(String value = "1=1")
         {
             String sql = "select distinct tipo_item from Item where " + value;
             DataTable dt = retornaDataTable(sql);
             return dt;
         }
-
+        //metodo para carregar combobox tamanho comra e entrega
         public DataTable retornaTamanhoCompra(String value = "1=1")
         {
             String sql = "select distinct tamanho_item from Item where " + value;

@@ -51,9 +51,9 @@ namespace Kronus_v2.br.model
 
         public System.Data.DataTable searchLogEntrega(String value = "1=1"){
             System.Data.DataTable dt;
-            String sql = "select  l.cod_entrega 'Código', f.nome_funcionario 'Funcionário', l.data_entrega 'Data'," + 
-                " l.quantidade_entrega 'Quantidade', i.nome_item 'E. P. I', i.tamanho_item 'Tamanho' from LogEntrega l inner join Funcionario f" +
-                " on l.cod_funcionario_fk = f.cod_funcionario inner join Item i on l.cod_item_fk = i.cod_item wehre " + value;
+            String sql = "select  l.cod_log_entrega 'Código', l.data_log_entrega 'Data', f.nome_funcionario 'Funcionário', " +
+                "  i.nome_item 'E. P. I', i.tipo_item 'Descrição', i.tamanho_item 'Tamanho', l.qtd_log_entrega 'Quantidade' from LogEntrega l inner join Funcionario f" +
+                " on l.cod_funcionario_fk = f.cod_funcionario inner join Item i on l.cod_item_fk = i.cod_item where " + value;
             return dt = retornaDataTable(sql);
         }
 
