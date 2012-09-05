@@ -78,7 +78,7 @@ namespace Kronus_v2.br.model
                     "values ('" + dataEntrega + "', '" + qtdEntrega + "', '" + funcionario + "', '" + item + "')";
             }
             else {
-                sql = "Update Entrega set data_entrega = '" + dataEntrega + "', qtd_entrega ='" + qtdEntrega + "' cod_funcionario_fk ='" +
+                sql = "Update Entrega set data_entrega = '" + dataEntrega + "', qtd_entrega ='" + qtdEntrega + "', cod_funcionario_fk ='" +
                     funcionario + "', cod_item_fk = '" + item + "' where cod_entrega = '" + codEntrega.ToString() + "'";
             }
             return result = executaSql(sql);

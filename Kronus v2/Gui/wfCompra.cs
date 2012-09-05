@@ -188,19 +188,28 @@ namespace Kronus_v2.Gui
 
         private void btCancelar_Click(object sender, EventArgs e)
         {
-            inicial();
+            if (tcCompra.SelectedIndex == 0)
+            {
+                inicial();
+            }
+            else {
+                tcCompra.SelectedIndex = 0;
+                inicial();
+            }
+            
         }
 
         private void btConsultaGeral_Click(object sender, EventArgs e)
         {
             btCancelar.Enabled = true;
             btConsultaGeral.Enabled = false;
-            if(tcCompra.SelectedIndex == 0){
+            if (tcCompra.SelectedIndex == 0)
+            {
                 dtpFinal.MaxDate = DateTime.Today;
                 dtpInicial.MaxDate = DateTime.Today;
                 limpaCampos();
                 dtpInicial.Value = DateTime.Today;
-                dtpFinal.Value    = DateTime.Today;
+                dtpFinal.Value = DateTime.Today;
                 txtValor.CausesValidation = false;
                 txtNumero.CausesValidation = false;
                 dtpDataCompra.CausesValidation = false;
@@ -218,6 +227,33 @@ namespace Kronus_v2.Gui
                 btConsultaCompra.Visible = true;
                 dtpInicial.CausesValidation = true;
                 dtpFinal.CausesValidation = true;
+                btCancelar.Enabled = true;
+            }
+            else {
+                tcCompra.SelectedIndex = 0;
+                dtpFinal.MaxDate = DateTime.Today;
+                dtpInicial.MaxDate = DateTime.Today;
+                limpaCampos();
+                dtpInicial.Value = DateTime.Today;
+                dtpFinal.Value = DateTime.Today;
+                txtValor.CausesValidation = false;
+                txtNumero.CausesValidation = false;
+                dtpDataCompra.CausesValidation = false;
+                lbCodigo.Visible = false;
+                txtCodigo.Visible = false;
+                txtNumero.Visible = false;
+                txtValor.Visible = false;
+                lbData.Visible = false;
+                lbNumero.Visible = false;
+                lbValor.Visible = false;
+                dtpDataCompra.Visible = false;
+                lbConsulta.Visible = true;
+                dtpInicial.Visible = true;
+                dtpFinal.Visible = true;
+                btConsultaCompra.Visible = true;
+                dtpInicial.CausesValidation = true;
+                dtpFinal.CausesValidation = true;
+                btCancelar.Enabled = true;
             }
         }
 
@@ -601,6 +637,7 @@ namespace Kronus_v2.Gui
             try
             {
                 nf.CodItemFk = cod;
+                nf.NotaFiscal = Convert.ToInt32(txtNumero.Text);
                 if (MessageBox.Show("Tem certeza que deseja excluir o E. P. I selecionado da nota fiscal?", "Kronus", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes) {
                     nf.deleteNota();
                     inicial();

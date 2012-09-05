@@ -59,7 +59,7 @@ namespace Kronus_v2.br.model
 
         public int addLogEntrega() {
             int result;
-            String sql = "insert into LogEntrega (data_entrega, qtd_entrega, cod_funcionario_fk, cod_item_fk)" +
+            String sql = "insert into LogEntrega (data_log_entrega, qtd_log_entrega, cod_funcionario_fk, cod_item_fk)" +
                     "values ('" + dataLogEntrega + "', '" + qtdLogEntrega + "', '" + funcionarioLogEntrega + "', '" + itemLogEntrega + "')";
             return result = executaSql(sql);
         }
