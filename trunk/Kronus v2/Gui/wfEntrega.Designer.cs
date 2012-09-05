@@ -29,19 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wfEntrega));
             this.tcEntrega = new System.Windows.Forms.TabControl();
             this.tpEntrega = new System.Windows.Forms.TabPage();
             this.dgLogEntrega = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpDataEntrega = new System.Windows.Forms.DateTimePicker();
+            this.btConsultaFuncEnt = new System.Windows.Forms.Button();
+            this.txtConsultaFuncEnt = new System.Windows.Forms.TextBox();
+            this.lbConsultaFuncEnt = new System.Windows.Forms.Label();
             this.cbTamanho = new System.Windows.Forms.ComboBox();
             this.cbDescricao = new System.Windows.Forms.ComboBox();
             this.cbItem = new System.Windows.Forms.ComboBox();
             this.cbFuncionario = new System.Windows.Forms.ComboBox();
-            this.txtData = new System.Windows.Forms.TextBox();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.lbDescricao = new System.Windows.Forms.Label();
             this.lbTamanho = new System.Windows.Forms.Label();
@@ -68,9 +72,6 @@
             this.btNovo = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lbConsultaFuncEnt = new System.Windows.Forms.Label();
-            this.txtConsultaFuncEnt = new System.Windows.Forms.TextBox();
-            this.btConsultaFuncEnt = new System.Windows.Forms.Button();
             this.tcEntrega.SuspendLayout();
             this.tpEntrega.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgLogEntrega)).BeginInit();
@@ -117,41 +118,48 @@
             this.dgLogEntrega.AllowUserToDeleteRows = false;
             this.dgLogEntrega.AllowUserToResizeRows = false;
             this.dgLogEntrega.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgLogEntrega.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgLogEntrega.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgLogEntrega.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgLogEntrega.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgLogEntrega.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgLogEntrega.Location = new System.Drawing.Point(14, 159);
             this.dgLogEntrega.MultiSelect = false;
             this.dgLogEntrega.Name = "dgLogEntrega";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgLogEntrega.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgLogEntrega.ReadOnly = true;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgLogEntrega.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgLogEntrega.RowHeadersVisible = false;
+            this.dgLogEntrega.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgLogEntrega.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgLogEntrega.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgLogEntrega.Size = new System.Drawing.Size(855, 201);
             this.dgLogEntrega.TabIndex = 1;
+            this.dgLogEntrega.DoubleClick += new System.EventHandler(this.dgLogEntrega_DoubleClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.groupBox1.Controls.Add(this.dtpDataEntrega);
             this.groupBox1.Controls.Add(this.btConsultaFuncEnt);
             this.groupBox1.Controls.Add(this.txtConsultaFuncEnt);
             this.groupBox1.Controls.Add(this.lbConsultaFuncEnt);
@@ -159,7 +167,6 @@
             this.groupBox1.Controls.Add(this.cbDescricao);
             this.groupBox1.Controls.Add(this.cbItem);
             this.groupBox1.Controls.Add(this.cbFuncionario);
-            this.groupBox1.Controls.Add(this.txtData);
             this.groupBox1.Controls.Add(this.txtQuantidade);
             this.groupBox1.Controls.Add(this.lbDescricao);
             this.groupBox1.Controls.Add(this.lbTamanho);
@@ -170,12 +177,52 @@
             this.groupBox1.Controls.Add(this.txtCodigo);
             this.groupBox1.Controls.Add(this.lbCodigo);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(14, 17);
+            this.groupBox1.Location = new System.Drawing.Point(14, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(855, 135);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados Entrega";
+            // 
+            // dtpDataEntrega
+            // 
+            this.dtpDataEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataEntrega.Location = new System.Drawing.Point(263, 40);
+            this.dtpDataEntrega.Name = "dtpDataEntrega";
+            this.dtpDataEntrega.Size = new System.Drawing.Size(109, 25);
+            this.dtpDataEntrega.TabIndex = 2;
+            // 
+            // btConsultaFuncEnt
+            // 
+            this.btConsultaFuncEnt.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btConsultaFuncEnt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btConsultaFuncEnt.BackgroundImage")));
+            this.btConsultaFuncEnt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btConsultaFuncEnt.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btConsultaFuncEnt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btConsultaFuncEnt.Location = new System.Drawing.Point(615, 61);
+            this.btConsultaFuncEnt.Name = "btConsultaFuncEnt";
+            this.btConsultaFuncEnt.Size = new System.Drawing.Size(90, 30);
+            this.btConsultaFuncEnt.TabIndex = 16;
+            this.btConsultaFuncEnt.UseVisualStyleBackColor = false;
+            this.btConsultaFuncEnt.Click += new System.EventHandler(this.btConsultaFuncEnt_Click);
+            // 
+            // txtConsultaFuncEnt
+            // 
+            this.txtConsultaFuncEnt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtConsultaFuncEnt.Location = new System.Drawing.Point(246, 65);
+            this.txtConsultaFuncEnt.Name = "txtConsultaFuncEnt";
+            this.txtConsultaFuncEnt.Size = new System.Drawing.Size(330, 25);
+            this.txtConsultaFuncEnt.TabIndex = 15;
+            // 
+            // lbConsultaFuncEnt
+            // 
+            this.lbConsultaFuncEnt.AutoSize = true;
+            this.lbConsultaFuncEnt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbConsultaFuncEnt.Location = new System.Drawing.Point(157, 68);
+            this.lbConsultaFuncEnt.Name = "lbConsultaFuncEnt";
+            this.lbConsultaFuncEnt.Size = new System.Drawing.Size(75, 17);
+            this.lbConsultaFuncEnt.TabIndex = 14;
+            this.lbConsultaFuncEnt.Text = "Consultar :";
             // 
             // cbTamanho
             // 
@@ -183,7 +230,7 @@
             this.cbTamanho.Location = new System.Drawing.Point(572, 88);
             this.cbTamanho.Name = "cbTamanho";
             this.cbTamanho.Size = new System.Drawing.Size(98, 25);
-            this.cbTamanho.TabIndex = 13;
+            this.cbTamanho.TabIndex = 6;
             this.cbTamanho.Validating += new System.ComponentModel.CancelEventHandler(this.cbTamanho_Validating);
             // 
             // cbDescricao
@@ -192,7 +239,7 @@
             this.cbDescricao.Location = new System.Drawing.Point(316, 88);
             this.cbDescricao.Name = "cbDescricao";
             this.cbDescricao.Size = new System.Drawing.Size(163, 25);
-            this.cbDescricao.TabIndex = 12;
+            this.cbDescricao.TabIndex = 5;
             this.cbDescricao.Validating += new System.ComponentModel.CancelEventHandler(this.cbDescricao_Validating);
             // 
             // cbItem
@@ -201,7 +248,7 @@
             this.cbItem.Location = new System.Drawing.Point(87, 88);
             this.cbItem.Name = "cbItem";
             this.cbItem.Size = new System.Drawing.Size(134, 25);
-            this.cbItem.TabIndex = 11;
+            this.cbItem.TabIndex = 4;
             this.cbItem.Validating += new System.ComponentModel.CancelEventHandler(this.cbItem_Validating);
             // 
             // cbFuncionario
@@ -210,23 +257,17 @@
             this.cbFuncionario.Location = new System.Drawing.Point(488, 40);
             this.cbFuncionario.Name = "cbFuncionario";
             this.cbFuncionario.Size = new System.Drawing.Size(249, 25);
-            this.cbFuncionario.TabIndex = 10;
+            this.cbFuncionario.TabIndex = 3;
             this.cbFuncionario.Validating += new System.ComponentModel.CancelEventHandler(this.cbFuncionario_Validating);
-            // 
-            // txtData
-            // 
-            this.txtData.Location = new System.Drawing.Point(265, 40);
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(89, 25);
-            this.txtData.TabIndex = 9;
-            this.txtData.Validating += new System.ComponentModel.CancelEventHandler(this.txtData_Validating);
             // 
             // txtQuantidade
             // 
+            this.txtQuantidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtQuantidade.Location = new System.Drawing.Point(777, 88);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(51, 25);
-            this.txtQuantidade.TabIndex = 8;
+            this.txtQuantidade.TabIndex = 7;
+            this.txtQuantidade.Validating += new System.ComponentModel.CancelEventHandler(this.txtQuantidade_Validating);
             // 
             // lbDescricao
             // 
@@ -319,11 +360,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.groupBox2.Controls.Add(this.btConsultaEntregaVenc);
             this.groupBox2.Controls.Add(this.txtConsultaVenc);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(13, 16);
+            this.groupBox2.Location = new System.Drawing.Point(13, 11);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(857, 100);
             this.groupBox2.TabIndex = 1;
@@ -385,10 +427,10 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox3.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.groupBox3.Controls.Add(this.dgVisaoEstoque);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(6, 15);
+            this.groupBox3.Location = new System.Drawing.Point(6, 10);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(873, 341);
             this.groupBox3.TabIndex = 0;
@@ -434,8 +476,9 @@
             this.btDeletar.Location = new System.Drawing.Point(240, 3);
             this.btDeletar.Name = "btDeletar";
             this.btDeletar.Size = new System.Drawing.Size(56, 25);
-            this.btDeletar.TabIndex = 6;
+            this.btDeletar.TabIndex = 12;
             this.btDeletar.UseVisualStyleBackColor = true;
+            this.btDeletar.Click += new System.EventHandler(this.btDeletar_Click);
             // 
             // btCancelar
             // 
@@ -447,7 +490,7 @@
             this.btCancelar.Location = new System.Drawing.Point(180, 3);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(56, 25);
-            this.btCancelar.TabIndex = 5;
+            this.btCancelar.TabIndex = 11;
             this.btCancelar.UseVisualStyleBackColor = false;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
@@ -460,7 +503,7 @@
             this.btConsultar.Location = new System.Drawing.Point(120, 3);
             this.btConsultar.Name = "btConsultar";
             this.btConsultar.Size = new System.Drawing.Size(56, 25);
-            this.btConsultar.TabIndex = 4;
+            this.btConsultar.TabIndex = 10;
             this.btConsultar.UseVisualStyleBackColor = true;
             this.btConsultar.Click += new System.EventHandler(this.btConsultar_Click);
             // 
@@ -474,8 +517,9 @@
             this.btSalvar.Location = new System.Drawing.Point(60, 3);
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(56, 25);
-            this.btSalvar.TabIndex = 3;
+            this.btSalvar.TabIndex = 9;
             this.btSalvar.UseVisualStyleBackColor = false;
+            this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
             // btNovo
             // 
@@ -487,7 +531,7 @@
             this.btNovo.Location = new System.Drawing.Point(0, 3);
             this.btNovo.Name = "btNovo";
             this.btNovo.Size = new System.Drawing.Size(56, 25);
-            this.btNovo.TabIndex = 2;
+            this.btNovo.TabIndex = 8;
             this.btNovo.UseVisualStyleBackColor = false;
             this.btNovo.Click += new System.EventHandler(this.btNovo_Click);
             // 
@@ -506,36 +550,6 @@
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
-            // 
-            // lbConsultaFuncEnt
-            // 
-            this.lbConsultaFuncEnt.AutoSize = true;
-            this.lbConsultaFuncEnt.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbConsultaFuncEnt.Location = new System.Drawing.Point(157, 68);
-            this.lbConsultaFuncEnt.Name = "lbConsultaFuncEnt";
-            this.lbConsultaFuncEnt.Size = new System.Drawing.Size(75, 17);
-            this.lbConsultaFuncEnt.TabIndex = 14;
-            this.lbConsultaFuncEnt.Text = "Consultar :";
-            // 
-            // txtConsultaFuncEnt
-            // 
-            this.txtConsultaFuncEnt.Location = new System.Drawing.Point(246, 65);
-            this.txtConsultaFuncEnt.Name = "txtConsultaFuncEnt";
-            this.txtConsultaFuncEnt.Size = new System.Drawing.Size(330, 25);
-            this.txtConsultaFuncEnt.TabIndex = 15;
-            // 
-            // btConsultaFuncEnt
-            // 
-            this.btConsultaFuncEnt.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btConsultaFuncEnt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btConsultaFuncEnt.BackgroundImage")));
-            this.btConsultaFuncEnt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btConsultaFuncEnt.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btConsultaFuncEnt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btConsultaFuncEnt.Location = new System.Drawing.Point(615, 61);
-            this.btConsultaFuncEnt.Name = "btConsultaFuncEnt";
-            this.btConsultaFuncEnt.Size = new System.Drawing.Size(90, 30);
-            this.btConsultaFuncEnt.TabIndex = 16;
-            this.btConsultaFuncEnt.UseVisualStyleBackColor = false;
             // 
             // wfEntrega
             // 
@@ -580,7 +594,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgLogEntrega;
         private System.Windows.Forms.Label lbCodigo;
-        private System.Windows.Forms.TextBox txtData;
         private System.Windows.Forms.TextBox txtQuantidade;
         private System.Windows.Forms.Label lbDescricao;
         private System.Windows.Forms.Label lbTamanho;
@@ -610,5 +623,6 @@
         private System.Windows.Forms.Button btConsultaFuncEnt;
         private System.Windows.Forms.TextBox txtConsultaFuncEnt;
         private System.Windows.Forms.Label lbConsultaFuncEnt;
+        private System.Windows.Forms.DateTimePicker dtpDataEntrega;
     }
 }

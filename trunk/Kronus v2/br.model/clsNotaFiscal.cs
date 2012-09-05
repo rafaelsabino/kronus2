@@ -80,7 +80,7 @@ namespace Kronus_v2.br.model
         }
 
         public int deleteNota() {
-            String sql = "delete from notaFiscal where cod_item_fk = '" + item + "'";
+            String sql = "delete from notaFiscal where cod_item_fk = '" + item + "' and nota_fiscal_fk = '" + nota + "'";
             int result = executaSql(sql);
             return result;
         }
