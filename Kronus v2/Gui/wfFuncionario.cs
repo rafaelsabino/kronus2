@@ -64,6 +64,7 @@ namespace Kronus_v2.Gui
             try
             {
                 dgFuncionario.DataSource = f.searchFuncionario();
+                dgFuncionario.Columns["Código"].Visible = false;
                 dgFuncionario.Refresh();
             }
             catch (Exception ex)
@@ -243,6 +244,7 @@ namespace Kronus_v2.Gui
             else {
                 br.model.clsFuncionario f = new br.model.clsFuncionario();
                 dgFuncionario.DataSource = f.searchFuncionario("nome_funcionario like '%" + txtConsulta.Text + "%'");
+                dgFuncionario.Columns["Código"].Visible = false;
                 txtConsulta.Text = String.Empty;
                 dgFuncionario.Refresh();
             }

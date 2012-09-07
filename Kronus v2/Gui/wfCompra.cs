@@ -123,6 +123,7 @@ namespace Kronus_v2.Gui
             {
                 dgCompra.DataSource = c.searchCompra();
                 dgCompra.Columns["Valor compra"].DefaultCellStyle.Format = "C2";
+                dgCompra.Columns["Código"].Visible = false;
                 dgCompra.Refresh();
             }
             catch (Exception ex)
@@ -270,6 +271,7 @@ namespace Kronus_v2.Gui
             else {
                 br.model.clsCompra c = new br.model.clsCompra();
                 dgCompra.DataSource = c.searchCompra("data_compra between '" + dtpInicial.Value + "' and '" + dtpFinal.Value + "'");
+                dgCompra.Columns["Código"].Visible = false;
             }
            
         }

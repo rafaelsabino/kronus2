@@ -64,6 +64,7 @@ namespace Kronus_v2.Gui
                 dgUsuário.Columns["Tipo acesso"].Visible = false;
                 dgUsuário.Columns["Senha"].ReadOnly = true;
                 dgUsuário.Columns["Tipo acesso"].ReadOnly = true;
+                dgUsuário.Columns["Código"].Visible = false;
                
                 dgUsuário.Refresh();
             }
@@ -361,6 +362,7 @@ namespace Kronus_v2.Gui
 
                 dgUsuário.DataSource = u.SearchUsuario("nome_user like '%" + txtConsulta.Text + "%'");
                 txtConsulta.Text = String.Empty;
+                dgUsuário.Columns["Código"].Visible = false;
                 txtConsulta.Select();
             }
         }               

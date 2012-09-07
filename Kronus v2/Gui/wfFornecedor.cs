@@ -35,6 +35,7 @@ namespace Kronus_v2
             try
             {
                 dgFornec.DataSource = obj.searchFornecedor();
+                dgFornec.Columns["Código"].Visible = false;
                 dgFornec.Refresh();
             }
             catch (Exception ex)
@@ -218,7 +219,8 @@ namespace Kronus_v2
 
                 try
                 {
-                    dgFornec.DataSource = f.searchFornecedor("nome_fornecedor like '%" + txtConsultaFornec.Text + "%'");                    
+                    dgFornec.DataSource = f.searchFornecedor("nome_fornecedor like '%" + txtConsultaFornec.Text + "%'");
+                    dgFornec.Columns["Código"].Visible = false;
                     DataTable dt = f.searchFornecedor("nome_fornecedor like '%" + txtConsultaFornec.Text + "%'");
                     int linhas = dt.Rows.Count;
                     txtConsultaFornec.Text = "";
