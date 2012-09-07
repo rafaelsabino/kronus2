@@ -68,6 +68,7 @@ namespace Kronus_v2
                 try 
 	            {	        
 		            dgItem.DataSource = i.searchItem();
+                    dgItem.Columns["Código"].Visible = false;
                     dgItem.Refresh();
 	            }
 	            catch (Exception ex)
@@ -404,6 +405,7 @@ namespace Kronus_v2
                 try
                 {
                     dgItem.DataSource = i.searchItem("nome_item like '%" + txtConsultar.Text + "%'");
+                    dgItem.Columns["Código"].Visible = false;
                     txtConsultar.Text = String.Empty; ;                  
                     
                 }

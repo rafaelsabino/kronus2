@@ -63,7 +63,7 @@ namespace Kronus_v2.br.model
 
         public System.Data.DataTable searchEntrega(String value = "1=1") {
             String sql = "select  e.cod_entrega 'Código', f.nome_funcionario 'Funcionário', e.data_entrega 'Data'," + 
-                " e.qtd_entrega 'Quantidade', i.nome_item 'E. P. I', i.tamanho_item 'Tamanho' from Entrega e inner join Funcionario f" +
+                " e.qtd_entrega 'Quantidade', i.nome_item 'E. P. I', i.tipo_item 'Descrição', i.tamanho_item 'Tamanho' from Entrega e inner join Funcionario f" +
                 " on e.cod_funcionario_fk = f.cod_funcionario inner join Item i on e.cod_item_fk = i.cod_item where " + value;
             System.Data.DataTable dt = retornaDataTable(sql);
             return dt;
@@ -79,7 +79,7 @@ namespace Kronus_v2.br.model
             }
             else {
                 sql = "Update Entrega set data_entrega = '" + dataEntrega + "', qtd_entrega ='" + qtdEntrega + "', cod_funcionario_fk ='" +
-                    funcionario + "', cod_item_fk = '" + item + "' where cod_entrega = '" + codEntrega.ToString() + "'";
+                    funcionario + "', cod_item_fk = '" + item + "' where cod_entrega = '" + codEntrega + "'";
             }
             return result = executaSql(sql);
             

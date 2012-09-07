@@ -18,10 +18,10 @@ namespace Kronus_v2.Gui
 
         private void wfEntrega_Load(object sender, EventArgs e)
         {
-            limpaCampos();
+           
             inicial();
             cargaGrid();
-           
+            limpaCampos();
         }
 
         public void cargaComboFunc() {
@@ -50,8 +50,7 @@ namespace Kronus_v2.Gui
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                throw;
+                MessageBox.Show(ex.Message);                
             }
             
         }
@@ -60,6 +59,7 @@ namespace Kronus_v2.Gui
             if (tcEntrega.SelectedIndex == 0)
             {
                 txtCodigo.Text = String.Empty;
+                dtpDataEntrega.Value = Convert.ToDateTime(DateTime.Today.ToShortDateString());
                 txtQuantidade.Text = String.Empty;
                 cbDescricao.Text = String.Empty;
                 cbFuncionario.Text = String.Empty;
@@ -112,7 +112,7 @@ namespace Kronus_v2.Gui
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                throw;
+               
             }
         }
 
@@ -138,7 +138,6 @@ namespace Kronus_v2.Gui
                 cbTamanho.Visible = true;
                 cbFuncionario.Visible = true;
                 btDeletar.Visible = false;
-                limpaCampos();
                 btSalvar.Enabled = false;
                 btDeletar.Enabled = false;
                 btCancelar.Enabled = false;
@@ -180,8 +179,7 @@ namespace Kronus_v2.Gui
 
         private void tcEntrega_SelectedIndexChanged(object sender, EventArgs e)
         {
-            inicial();
-            limpaCampos();
+            inicial();           
         }
 
         private void tcEntrega_Click(object sender, EventArgs e)
@@ -190,13 +188,47 @@ namespace Kronus_v2.Gui
             {
                 btNovo.Enabled = true;
                 btConsultar.Enabled = true;
+                btCancelar.Enabled = true;
+                limpaCampos();
             }
-            else { 
-                if(tcEntrega.SelectedIndex == 1){
+            else {
+                if (tcEntrega.SelectedIndex == 1)
+                {
                     txtConsultaVenc.Select();
+                    cargaGridEntVenc();
+                }
+                else { 
+                    if(tcEntrega.SelectedIndex == 2){
+                        cargaGridEstoque();
+                    }
                 }
             }
            
+        }
+
+        public void cargaGridEstoque() {
+            br.model.clsItem i = new br.model.clsItem();
+
+            dgVisaoEstoque.DataSource = i.searchItem("quantidade_estoque <= estoque_min");
+            dgVisaoEstoque.Columns["Mínimo em estoque"].Visible = false;
+            dgVisaoEstoque.Columns["Código"].Visible = false;
+        }
+
+        public void cargaGridEntVenc() {
+            br.model.clsEntrega ent = new br.model.clsEntrega();
+            try
+            {
+                dgEntregaVenc.DataSource = ent.searchEntrega("nome_item like '%CREME%'  and data_entrega <= getdate() - 30" +
+               "or nome_item like '%PROTETOR%' and data_entrega <= getdate() - 120 ");
+                dgEntregaVenc.Columns["Código"].Visible = false;
+                dgEntregaVenc.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
+
         }
 
         private void btNovo_Click(object sender, EventArgs e)
@@ -211,6 +243,7 @@ namespace Kronus_v2.Gui
             txtCodigo.Visible = false;
             dtpDataEntrega.Enabled = true;
             dtpDataEntrega.MaxDate = DateTime.Today;
+            limpaCampos();
             dtpDataEntrega.Focus();
             txtQuantidade.Enabled = true;
             cbItem.Text = "Selecione o E. P. I";
@@ -233,6 +266,7 @@ namespace Kronus_v2.Gui
         private void btCancelar_Click(object sender, EventArgs e)
         {
             inicial();
+            limpaCampos();
         }
 
         private void btConsultar_Click(object sender, EventArgs e)
@@ -277,6 +311,7 @@ namespace Kronus_v2.Gui
                 errorProvider1.SetError(cbItem, String.Empty);
                 cargaComboDescricao();
                 cbDescricao.Text = "Descrição do E. P. I";
+                cbDescricao.Focus();
             }
         }
 
@@ -292,6 +327,7 @@ namespace Kronus_v2.Gui
                 errorProvider1.SetError(cbDescricao, String.Empty);
                 cargaComboTamanho();
                 cbTamanho.Text = "Tamanho";
+                cbTamanho.Focus();
             }
         }
 
@@ -305,6 +341,7 @@ namespace Kronus_v2.Gui
             }
             else {
                 errorProvider1.SetError(cbFuncionario, String.Empty);
+                cbItem.Focus();
                 
             }
         }
@@ -319,7 +356,7 @@ namespace Kronus_v2.Gui
             }
             else {
                 errorProvider1.SetError(cbTamanho, String.Empty);
-                txtQuantidade.Select();
+                txtQuantidade.Focus();
             }
         }
 
@@ -362,14 +399,15 @@ namespace Kronus_v2.Gui
                         br.model.clslogEntrega log = new br.model.clslogEntrega();
                         try
                         {
-                            ent.DataEntrega = Convert.ToDateTime(dtpDataEntrega.Value.ToShortDateString());
+                            ent.CodigoEntrega = codEnt;
+                            ent.DataEntrega = Convert.ToDateTime(this.dtpDataEntrega.Value.ToShortDateString());
                             ent.codItem = codItem;
-                            ent.CodFuncionario = Convert.ToInt32(cbFuncionario.SelectedValue);
-                            ent.QuantidadeEntrega = Convert.ToInt32(txtQuantidade.Text);
-                            log.DataLogEntrega = Convert.ToDateTime(dtpDataEntrega.Value.ToShortDateString());
-                            log.FuncionarioLogEntrega = Convert.ToInt32(cbFuncionario.SelectedValue);
+                            ent.CodFuncionario = Convert.ToInt32(this.cbFuncionario.SelectedValue);
+                            ent.QuantidadeEntrega = Convert.ToInt32(this.txtQuantidade.Text);
+                            log.DataLogEntrega = Convert.ToDateTime(this.dtpDataEntrega.Value.ToShortDateString());
+                            log.FuncionarioLogEntrega = Convert.ToInt32(this.cbFuncionario.SelectedValue);
                             log.ItemLogEntrega = codItem;
-                            log.QuantidadeLogEntrega = Convert.ToInt32(txtQuantidade.Text);
+                            log.QuantidadeLogEntrega = Convert.ToInt32(this.txtQuantidade.Text);
                             ent.addEntrega();
                             log.addLogEntrega();
                             cargaGrid();
@@ -387,14 +425,14 @@ namespace Kronus_v2.Gui
                         br.model.clslogEntrega log = new br.model.clslogEntrega();
                         try
                         {
-                            ent.DataEntrega = Convert.ToDateTime(dtpDataEntrega.Value.ToShortDateString());
+                            ent.DataEntrega = Convert.ToDateTime(this.dtpDataEntrega.Value.ToShortDateString());
                             ent.codItem = codItem;
-                            ent.CodFuncionario = Convert.ToInt32(cbFuncionario.SelectedValue);
-                            ent.QuantidadeEntrega = Convert.ToInt32(txtQuantidade.Text);
-                            log.DataLogEntrega = Convert.ToDateTime(dtpDataEntrega.Value.ToShortDateString());
-                            log.FuncionarioLogEntrega = Convert.ToInt32(cbFuncionario.SelectedValue);
+                            ent.CodFuncionario = Convert.ToInt32(this.cbFuncionario.SelectedValue);
+                            ent.QuantidadeEntrega = Convert.ToInt32(this.txtQuantidade.Text);
+                            log.DataLogEntrega = Convert.ToDateTime(this.dtpDataEntrega.Value.ToShortDateString());
+                            log.FuncionarioLogEntrega = Convert.ToInt32(this.cbFuncionario.SelectedValue);
                             log.ItemLogEntrega = codItem;
-                            log.QuantidadeLogEntrega = Convert.ToInt32(txtQuantidade.Text);
+                            log.QuantidadeLogEntrega = Convert.ToInt32(this.txtQuantidade.Text);
                             ent.addEntrega();
                             log.addLogEntrega();
                             cargaGrid();
@@ -415,12 +453,13 @@ namespace Kronus_v2.Gui
                     br.model.clslogEntrega log = new br.model.clslogEntrega();
                     try
                     {
-                        ent.DataEntrega = Convert.ToDateTime(dtpDataEntrega.Value.ToShortDateString());
+                        ent.CodigoEntrega = codEnt;
+                        ent.DataEntrega = Convert.ToDateTime(this.dtpDataEntrega.Value.ToShortDateString());
                         ent.codItem = codItem;
-                        ent.CodFuncionario = Convert.ToInt32(cbFuncionario.SelectedValue);
-                        ent.QuantidadeEntrega = Convert.ToInt32(txtQuantidade.Text);
-                        log.DataLogEntrega = Convert.ToDateTime(dtpDataEntrega.Value.ToShortDateString());
-                        log.FuncionarioLogEntrega = Convert.ToInt32(cbFuncionario.SelectedValue);
+                        ent.CodFuncionario = Convert.ToInt32(this.cbFuncionario.SelectedValue);
+                        ent.QuantidadeEntrega = Convert.ToInt32(this.txtQuantidade.Text);
+                        log.DataLogEntrega = Convert.ToDateTime(this.dtpDataEntrega.Value.ToShortDateString());
+                        log.FuncionarioLogEntrega = Convert.ToInt32(this.cbFuncionario.SelectedValue);
                         log.ItemLogEntrega = codItem;
                         log.QuantidadeLogEntrega = Convert.ToInt32(txtQuantidade.Text);
                         ent.addEntrega();
@@ -435,6 +474,8 @@ namespace Kronus_v2.Gui
                     }                
                 }
             }
+            limpaCampos();
+            cargaGridEntVenc();
         }
 
         private void btConsultaFuncEnt_Click(object sender, EventArgs e)
@@ -529,19 +570,77 @@ namespace Kronus_v2.Gui
                 try
                 {
                     log.deleteLogEntrega();
-                    cargaGrid();
+                    cargaGrid();                    
                     inicial();
+                    limpaCampos();
                     MessageBox.Show("Entrega excluida com sucesso!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);      
+                    MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    limpaCampos();
                 }
                 
             }
-
+            
         }
 
+        private void btConsultaEntregaVenc_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtConsultaVenc.Text))
+            {
+                MessageBox.Show("Informe o nome do funcionário para consulta.", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtConsultaVenc.Text = String.Empty;
+                txtConsultaVenc.Select();
+            }
+            else {
+                if (MessageBox.Show("Deseja exibir apenas as entregas vencidas?", "Kronus", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    br.model.clsEntrega en = new br.model.clsEntrega();
+                    dgEntregaVenc.DataSource = en.searchEntrega("nome_item like '%CREME%' and data_entrega < getDate() - 30  or nome_item like '%PROTETOR%' and data_entrega < getdate() - 120 and nome_funcionario like '%" + txtConsultaVenc.Text + "%'");
+                    dgEntregaVenc.Columns["Código"].Visible = false;
+                    dgEntregaVenc.Refresh();
+                    txtConsultaVenc.Text = String.Empty;
+                }
+                else {
+                    br.model.clsEntrega en = new br.model.clsEntrega();
+                    dgEntregaVenc.DataSource = en.searchEntrega("nome_item like '%CREME%' or nome_item like '%PROTETOR%' and nome_funcionario like '%" + txtConsultaVenc.Text + "%'");
+                    dgEntregaVenc.Columns["Código"].Visible = false;
+                    dgEntregaVenc.Refresh();
+                    txtConsultaVenc.Text = String.Empty;
+                }
+                
+            }
+           
+        }
+
+        private void dgEntregaVenc_DoubleClick(object sender, EventArgs e)
+        {
+            carregaObjetoVencido();
+        }
+
+
+        public void carregaObjetoVencido() {           
+            tcEntrega.SelectedIndex = 0;
+            txtCodigo.Text = dgEntregaVenc.Rows[dgEntregaVenc.CurrentRow.Index].Cells[0].Value.ToString();
+            dtpDataEntrega.Value = Convert.ToDateTime(DateTime.Today);
+            cbFuncionario.Text = dgEntregaVenc.Rows[dgEntregaVenc.CurrentRow.Index].Cells[1].Value.ToString();
+            cbItem.Text = dgEntregaVenc.Rows[dgEntregaVenc.CurrentRow.Index].Cells[4].Value.ToString();
+            cbDescricao.Text = dgEntregaVenc.Rows[dgEntregaVenc.CurrentRow.Index].Cells[5].Value.ToString();
+            cbTamanho.Text = dgEntregaVenc.Rows[dgEntregaVenc.CurrentRow.Index].Cells[6].Value.ToString();
+            txtQuantidade.Text = dgEntregaVenc.Rows[dgEntregaVenc.CurrentRow.Index].Cells[3].Value.ToString();
+            btNovo.Enabled = true;
+            btConsultar.Enabled = true;
+            btCancelar.Enabled = true;
+            btSalvar.Enabled = true;
+            cbDescricao.Enabled = true;
+            cbTamanho.Enabled = true;
+        }
+
+        private void dtpDataEntrega_Validating(object sender, CancelEventArgs e)
+        {
+            cbFuncionario.Focus();
+        }
             
 
                              
