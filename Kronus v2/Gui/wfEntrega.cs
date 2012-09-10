@@ -168,11 +168,24 @@ namespace Kronus_v2.Gui
                 btConsultaFuncEnt.Visible = false;
             }
             else {
-                btSalvar.Enabled = false;
-                btDeletar.Enabled = false;
-                btCancelar.Enabled = false;
-                btConsultar.Enabled = false;
-                btNovo.Enabled = false;
+                if (tcEntrega.SelectedIndex == 1)
+                {
+                    cargaGridEntVenc();
+                    btSalvar.Enabled = false;
+                    btDeletar.Enabled = false;
+                    btCancelar.Enabled = true; ;
+                    btConsultar.Enabled = false;
+                    btNovo.Enabled = false;
+                }
+                else { 
+                    if(tcEntrega.SelectedIndex == 2){
+                    btSalvar.Enabled = false;
+                    btDeletar.Enabled = false;
+                    btCancelar.Enabled = false;
+                    btConsultar.Enabled = false;
+                    btNovo.Enabled = false;
+                    }
+                }                
             }
             
         }
@@ -186,19 +199,21 @@ namespace Kronus_v2.Gui
         {
             if (tcEntrega.SelectedIndex == 0)
             {
+                inicial();
                 btNovo.Enabled = true;
-                btConsultar.Enabled = true;
-                btCancelar.Enabled = true;
+                btConsultar.Enabled = true;                
                 limpaCampos();
             }
             else {
                 if (tcEntrega.SelectedIndex == 1)
                 {
+                    inicial();
                     txtConsultaVenc.Select();
                     cargaGridEntVenc();
                 }
                 else { 
                     if(tcEntrega.SelectedIndex == 2){
+                        inicial();
                         cargaGridEstoque();
                     }
                 }
@@ -388,12 +403,74 @@ namespace Kronus_v2.Gui
                 inicial();
             }
             else {
-                if (String.IsNullOrEmpty(txtCodigo.Text))
+                if (qtd < Convert.ToInt32(txtQuantidade.Text))
                 {
-                    System.Data.DataTable dt2 = bd.retornaDataTable("select cod_entrega from Entrega where cod_item_fk = '" + codItem +
-                        "' and cod_funcionario_fk = '" + cbFuncionario.SelectedValue + "'");
-                    if (dt2.Rows.Count > 0)
-                    { //Existe entrega 
+                    MessageBox.Show("Você posui do E. P. I selecionado apenas " + qtd + " em estoque.",
+                        "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    inicial();
+                }
+                else {
+                    if (String.IsNullOrEmpty(txtCodigo.Text))
+                    {
+                        System.Data.DataTable dt2 = bd.retornaDataTable("select cod_entrega from Entrega where cod_item_fk = '" + codItem +
+                            "' and cod_funcionario_fk = '" + cbFuncionario.SelectedValue + "'");
+                        if (dt2.Rows.Count > 0)
+                        { //Existe entrega 
+                            int codEnt = Convert.ToInt32(dt2.Rows[0]["cod_entrega"]);
+                            br.model.clsEntrega ent = new br.model.clsEntrega(codEnt.ToString());
+                            br.model.clslogEntrega log = new br.model.clslogEntrega();
+                            try
+                            {
+                                ent.CodigoEntrega = codEnt;
+                                ent.DataEntrega = Convert.ToDateTime(this.dtpDataEntrega.Value.ToShortDateString());
+                                ent.codItem = codItem;
+                                ent.CodFuncionario = Convert.ToInt32(this.cbFuncionario.SelectedValue);
+                                ent.QuantidadeEntrega = Convert.ToInt32(this.txtQuantidade.Text);
+                                log.DataLogEntrega = Convert.ToDateTime(this.dtpDataEntrega.Value.ToShortDateString());
+                                log.FuncionarioLogEntrega = Convert.ToInt32(this.cbFuncionario.SelectedValue);
+                                log.ItemLogEntrega = codItem;
+                                log.QuantidadeLogEntrega = Convert.ToInt32(this.txtQuantidade.Text);
+                                ent.addEntrega();
+                                log.addLogEntrega();
+                                cargaGrid();
+                                inicial();
+                                MessageBox.Show("Entrega realizada com sucesso!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            br.model.clsEntrega ent = new br.model.clsEntrega();
+                            br.model.clslogEntrega log = new br.model.clslogEntrega();
+                            try
+                            {
+                                ent.DataEntrega = Convert.ToDateTime(this.dtpDataEntrega.Value.ToShortDateString());
+                                ent.codItem = codItem;
+                                ent.CodFuncionario = Convert.ToInt32(this.cbFuncionario.SelectedValue);
+                                ent.QuantidadeEntrega = Convert.ToInt32(this.txtQuantidade.Text);
+                                log.DataLogEntrega = Convert.ToDateTime(this.dtpDataEntrega.Value.ToShortDateString());
+                                log.FuncionarioLogEntrega = Convert.ToInt32(this.cbFuncionario.SelectedValue);
+                                log.ItemLogEntrega = codItem;
+                                log.QuantidadeLogEntrega = Convert.ToInt32(this.txtQuantidade.Text);
+                                ent.addEntrega();
+                                log.addLogEntrega();
+                                cargaGrid();
+                                inicial();
+                                MessageBox.Show("Entrega realizada com sucesso!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        System.Data.DataTable dt2 = bd.retornaDataTable("select cod_entrega from Entrega where cod_item_fk = '" + codItem +
+                           "' and cod_funcionario_fk = '" + cbFuncionario.SelectedValue + "'");
                         int codEnt = Convert.ToInt32(dt2.Rows[0]["cod_entrega"]);
                         br.model.clsEntrega ent = new br.model.clsEntrega(codEnt.ToString());
                         br.model.clslogEntrega log = new br.model.clslogEntrega();
@@ -407,32 +484,7 @@ namespace Kronus_v2.Gui
                             log.DataLogEntrega = Convert.ToDateTime(this.dtpDataEntrega.Value.ToShortDateString());
                             log.FuncionarioLogEntrega = Convert.ToInt32(this.cbFuncionario.SelectedValue);
                             log.ItemLogEntrega = codItem;
-                            log.QuantidadeLogEntrega = Convert.ToInt32(this.txtQuantidade.Text);
-                            ent.addEntrega();
-                            log.addLogEntrega();
-                            cargaGrid();
-                            inicial();
-                            MessageBox.Show("Entrega realizada com sucesso!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    else
-                    {
-                        br.model.clsEntrega ent = new br.model.clsEntrega();
-                        br.model.clslogEntrega log = new br.model.clslogEntrega();
-                        try
-                        {
-                            ent.DataEntrega = Convert.ToDateTime(this.dtpDataEntrega.Value.ToShortDateString());
-                            ent.codItem = codItem;
-                            ent.CodFuncionario = Convert.ToInt32(this.cbFuncionario.SelectedValue);
-                            ent.QuantidadeEntrega = Convert.ToInt32(this.txtQuantidade.Text);
-                            log.DataLogEntrega = Convert.ToDateTime(this.dtpDataEntrega.Value.ToShortDateString());
-                            log.FuncionarioLogEntrega = Convert.ToInt32(this.cbFuncionario.SelectedValue);
-                            log.ItemLogEntrega = codItem;
-                            log.QuantidadeLogEntrega = Convert.ToInt32(this.txtQuantidade.Text);
+                            log.QuantidadeLogEntrega = Convert.ToInt32(txtQuantidade.Text);
                             ent.addEntrega();
                             log.addLogEntrega();
                             cargaGrid();
@@ -445,44 +497,18 @@ namespace Kronus_v2.Gui
                         }
                     }
                 }
-                else {
-                    System.Data.DataTable dt2 = bd.retornaDataTable("select cod_entrega from Entrega where cod_item_fk = '" + codItem +
-                       "' and cod_funcionario_fk = '" + cbFuncionario.SelectedValue + "'");
-                    int codEnt = Convert.ToInt32(dt2.Rows[0]["cod_entrega"]);
-                    br.model.clsEntrega ent = new br.model.clsEntrega(codEnt.ToString());
-                    br.model.clslogEntrega log = new br.model.clslogEntrega();
-                    try
-                    {
-                        ent.CodigoEntrega = codEnt;
-                        ent.DataEntrega = Convert.ToDateTime(this.dtpDataEntrega.Value.ToShortDateString());
-                        ent.codItem = codItem;
-                        ent.CodFuncionario = Convert.ToInt32(this.cbFuncionario.SelectedValue);
-                        ent.QuantidadeEntrega = Convert.ToInt32(this.txtQuantidade.Text);
-                        log.DataLogEntrega = Convert.ToDateTime(this.dtpDataEntrega.Value.ToShortDateString());
-                        log.FuncionarioLogEntrega = Convert.ToInt32(this.cbFuncionario.SelectedValue);
-                        log.ItemLogEntrega = codItem;
-                        log.QuantidadeLogEntrega = Convert.ToInt32(txtQuantidade.Text);
-                        ent.addEntrega();
-                        log.addLogEntrega();
-                        cargaGrid();
-                        inicial();
-                        MessageBox.Show("Entrega realizada com sucesso!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }                
-                }
+                limpaCampos();
+                cargaGridEntVenc();
             }
-            limpaCampos();
-            cargaGridEntVenc();
         }
+                
 
         private void btConsultaFuncEnt_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(txtConsultaFuncEnt.Text))
             {
                 MessageBox.Show("Informe o nome do funcionário para consulta.", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtConsultaFuncEnt.Focus();
             }
             else
             {
@@ -635,6 +661,8 @@ namespace Kronus_v2.Gui
             btSalvar.Enabled = true;
             cbDescricao.Enabled = true;
             cbTamanho.Enabled = true;
+            cargaComboDescricao();
+            cargaComboTamanho();
         }
 
         private void dtpDataEntrega_Validating(object sender, CancelEventArgs e)

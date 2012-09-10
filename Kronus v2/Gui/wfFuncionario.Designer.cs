@@ -51,6 +51,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgFuncionario = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.gbStatus.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -88,6 +89,7 @@
             this.btConsulta.Name = "btConsulta";
             this.btConsulta.Size = new System.Drawing.Size(90, 30);
             this.btConsulta.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.btConsulta, "Consultar funcionário.");
             this.btConsulta.UseVisualStyleBackColor = false;
             this.btConsulta.Click += new System.EventHandler(this.btConsulta_Click);
             // 
@@ -98,6 +100,7 @@
             this.txtConsulta.Name = "txtConsulta";
             this.txtConsulta.Size = new System.Drawing.Size(332, 25);
             this.txtConsulta.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.txtConsulta, "informe o nome do funcionário.");
             // 
             // label3
             // 
@@ -121,6 +124,7 @@
             this.gbStatus.TabIndex = 4;
             this.gbStatus.TabStop = false;
             this.gbStatus.Text = "Status";
+            this.toolTip1.SetToolTip(this.gbStatus, "Selecionar status funcionário.");
             // 
             // rbDemitido
             // 
@@ -161,6 +165,7 @@
             this.txtnome.Name = "txtnome";
             this.txtnome.Size = new System.Drawing.Size(355, 25);
             this.txtnome.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.txtnome, "Nome funcionário.");
             this.txtnome.Validating += new System.ComponentModel.CancelEventHandler(this.txtnome_Validating);
             // 
             // txtCodigo
@@ -213,6 +218,7 @@
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(56, 25);
             this.btCancelar.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.btCancelar, "Cancelar registro de funcionário.");
             this.btCancelar.UseVisualStyleBackColor = false;
             this.btCancelar.Click += new System.EventHandler(this.btExcluir_Click);
             // 
@@ -227,6 +233,7 @@
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(56, 25);
             this.btSalvar.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.btSalvar, "Salvar registro.");
             this.btSalvar.UseVisualStyleBackColor = false;
             this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
@@ -241,6 +248,7 @@
             this.btNovo.Name = "btNovo";
             this.btNovo.Size = new System.Drawing.Size(56, 25);
             this.btNovo.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.btNovo, "Novo registro de funcionário");
             this.btNovo.UseVisualStyleBackColor = false;
             this.btNovo.Click += new System.EventHandler(this.btNovo_Click);
             // 
@@ -287,6 +295,7 @@
             this.dgFuncionario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgFuncionario.Size = new System.Drawing.Size(672, 192);
             this.dgFuncionario.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.dgFuncionario, "Funcionários registrados.");
             this.dgFuncionario.DoubleClick += new System.EventHandler(this.dgFuncionario_DoubleClick);
             // 
             // errorProvider1
@@ -306,7 +315,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "wfFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Funcionario";
+            this.Text = "Funcionário";
             this.Load += new System.EventHandler(this.wfFuncionario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -340,5 +349,6 @@
         private System.Windows.Forms.Button btCancelar;
         private System.Windows.Forms.DataGridView dgFuncionario;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

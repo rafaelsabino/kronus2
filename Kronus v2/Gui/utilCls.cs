@@ -11,7 +11,7 @@ namespace Kronus_v2
 {
     class utilCls
     {
-        public static int Log_User = 0;
+        public static int relatorio = 0;
         
         
         #region --Forms--
@@ -44,6 +44,7 @@ namespace Kronus_v2
             }
         }
         
+
         #endregion
 
 

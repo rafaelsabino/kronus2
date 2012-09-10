@@ -18,25 +18,38 @@ namespace Kronus_v2
 
         private void Principal_Load(object sender, EventArgs e)
         {
+            
             this.Width = Screen.PrimaryScreen.Bounds.Width;
             this.Height = Screen.PrimaryScreen.Bounds.Height;
-           
-            
-            utilCls.OpenForm(this, new login());
-            Application.DoEvents();
+
+                        
+            utilCls.OpenForm(this, new login(this));
+
+
+            mnPrincipal.Enabled = false;        
+
+           Application.DoEvents();
            
 
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Tag = false;
-            Application.Exit();
+            if (MessageBox.Show("Você está prestes a fechar a aplicação.\nTem certeza que deseja continuar?", "Kronus", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                this.Tag = false;
+                Application.Exit();
+            }
+            
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            utilCls.OpenForm(this, new login());
+            if(MessageBox.Show("Você está prestes a sair de sua conta.\nTem certeza que deseja continuar?", "Kronus", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes ){
+               
+                utilCls.OpenForm(this, new login(this));
+            }
+            
         }
 
         private void fornecedoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,6 +87,25 @@ namespace Kronus_v2
         private void entregasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             utilCls.OpenForm(this, new Gui.wfEntrega());
+        }
+
+        private void comprasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            utilCls.OpenForm(this, new Gui.wfRelatorio());
+            utilCls.relatorio = 1;
+           
+        }
+
+        private void consumoFuncionárioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            utilCls.OpenForm(this, new Gui.wfRelatorio());
+            utilCls.relatorio = 2;
+        }
+
+        private void itensEntreguePeríodoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            utilCls.OpenForm(this, new Gui.wfRelatorio());
+            utilCls.relatorio = 3;
         }
 
                             
