@@ -80,6 +80,7 @@
             this.btNovo = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tcEntrega.SuspendLayout();
             this.tpEntrega.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgLogEntrega)).BeginInit();
@@ -162,6 +163,7 @@
             this.dgLogEntrega.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgLogEntrega.Size = new System.Drawing.Size(855, 201);
             this.dgLogEntrega.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.dgLogEntrega, "Entregas realizadas aos funcionários.");
             this.dgLogEntrega.DoubleClick += new System.EventHandler(this.dgLogEntrega_DoubleClick);
             // 
             // groupBox1
@@ -199,6 +201,7 @@
             this.dtpDataEntrega.Name = "dtpDataEntrega";
             this.dtpDataEntrega.Size = new System.Drawing.Size(109, 25);
             this.dtpDataEntrega.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.dtpDataEntrega, "Data da entrega.");
             this.dtpDataEntrega.Validating += new System.ComponentModel.CancelEventHandler(this.dtpDataEntrega_Validating);
             // 
             // btConsultaFuncEnt
@@ -212,6 +215,7 @@
             this.btConsultaFuncEnt.Name = "btConsultaFuncEnt";
             this.btConsultaFuncEnt.Size = new System.Drawing.Size(90, 30);
             this.btConsultaFuncEnt.TabIndex = 16;
+            this.toolTip1.SetToolTip(this.btConsultaFuncEnt, "Consultar entrega.");
             this.btConsultaFuncEnt.UseVisualStyleBackColor = false;
             this.btConsultaFuncEnt.Click += new System.EventHandler(this.btConsultaFuncEnt_Click);
             // 
@@ -222,6 +226,7 @@
             this.txtConsultaFuncEnt.Name = "txtConsultaFuncEnt";
             this.txtConsultaFuncEnt.Size = new System.Drawing.Size(330, 25);
             this.txtConsultaFuncEnt.TabIndex = 15;
+            this.toolTip1.SetToolTip(this.txtConsultaFuncEnt, "Informe o nome do funcionário.");
             // 
             // lbConsultaFuncEnt
             // 
@@ -236,28 +241,31 @@
             // cbTamanho
             // 
             this.cbTamanho.FormattingEnabled = true;
-            this.cbTamanho.Location = new System.Drawing.Point(572, 88);
+            this.cbTamanho.Location = new System.Drawing.Point(592, 88);
             this.cbTamanho.Name = "cbTamanho";
             this.cbTamanho.Size = new System.Drawing.Size(98, 25);
             this.cbTamanho.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.cbTamanho, "Tamanho do e. p. i.");
             this.cbTamanho.Validating += new System.ComponentModel.CancelEventHandler(this.cbTamanho_Validating);
             // 
             // cbDescricao
             // 
             this.cbDescricao.FormattingEnabled = true;
-            this.cbDescricao.Location = new System.Drawing.Point(316, 88);
+            this.cbDescricao.Location = new System.Drawing.Point(336, 88);
             this.cbDescricao.Name = "cbDescricao";
             this.cbDescricao.Size = new System.Drawing.Size(163, 25);
             this.cbDescricao.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.cbDescricao, "Descrição do e. p. i.");
             this.cbDescricao.Validating += new System.ComponentModel.CancelEventHandler(this.cbDescricao_Validating);
             // 
             // cbItem
             // 
             this.cbItem.FormattingEnabled = true;
-            this.cbItem.Location = new System.Drawing.Point(87, 88);
+            this.cbItem.Location = new System.Drawing.Point(72, 88);
             this.cbItem.Name = "cbItem";
-            this.cbItem.Size = new System.Drawing.Size(134, 25);
+            this.cbItem.Size = new System.Drawing.Size(169, 25);
             this.cbItem.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.cbItem, "E. p. i. entregue.");
             this.cbItem.Validating += new System.ComponentModel.CancelEventHandler(this.cbItem_Validating);
             // 
             // cbFuncionario
@@ -265,24 +273,26 @@
             this.cbFuncionario.FormattingEnabled = true;
             this.cbFuncionario.Location = new System.Drawing.Point(488, 40);
             this.cbFuncionario.Name = "cbFuncionario";
-            this.cbFuncionario.Size = new System.Drawing.Size(249, 25);
+            this.cbFuncionario.Size = new System.Drawing.Size(332, 25);
             this.cbFuncionario.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.cbFuncionario, "Funcionário que retirou o e. p. i.");
             this.cbFuncionario.Validating += new System.ComponentModel.CancelEventHandler(this.cbFuncionario_Validating);
             // 
             // txtQuantidade
             // 
             this.txtQuantidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtQuantidade.Location = new System.Drawing.Point(777, 88);
+            this.txtQuantidade.Location = new System.Drawing.Point(797, 88);
             this.txtQuantidade.Name = "txtQuantidade";
-            this.txtQuantidade.Size = new System.Drawing.Size(51, 25);
+            this.txtQuantidade.Size = new System.Drawing.Size(38, 25);
             this.txtQuantidade.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.txtQuantidade, "Quantidade entregue.");
             this.txtQuantidade.Validating += new System.ComponentModel.CancelEventHandler(this.txtQuantidade_Validating);
             // 
             // lbDescricao
             // 
             this.lbDescricao.AutoSize = true;
             this.lbDescricao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDescricao.Location = new System.Drawing.Point(237, 91);
+            this.lbDescricao.Location = new System.Drawing.Point(257, 91);
             this.lbDescricao.Name = "lbDescricao";
             this.lbDescricao.Size = new System.Drawing.Size(75, 17);
             this.lbDescricao.TabIndex = 7;
@@ -292,7 +302,7 @@
             // 
             this.lbTamanho.AutoSize = true;
             this.lbTamanho.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTamanho.Location = new System.Drawing.Point(492, 91);
+            this.lbTamanho.Location = new System.Drawing.Point(512, 91);
             this.lbTamanho.Name = "lbTamanho";
             this.lbTamanho.Size = new System.Drawing.Size(74, 17);
             this.lbTamanho.TabIndex = 6;
@@ -312,7 +322,7 @@
             // 
             this.lbQtd.AutoSize = true;
             this.lbQtd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbQtd.Location = new System.Drawing.Point(683, 91);
+            this.lbQtd.Location = new System.Drawing.Point(703, 91);
             this.lbQtd.Name = "lbQtd";
             this.lbQtd.Size = new System.Drawing.Size(88, 17);
             this.lbQtd.TabIndex = 4;
@@ -332,7 +342,7 @@
             // 
             this.lbEpi.AutoSize = true;
             this.lbEpi.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEpi.Location = new System.Drawing.Point(30, 91);
+            this.lbEpi.Location = new System.Drawing.Point(17, 91);
             this.lbEpi.Name = "lbEpi";
             this.lbEpi.Size = new System.Drawing.Size(51, 17);
             this.lbEpi.TabIndex = 2;
@@ -392,6 +402,7 @@
             this.btConsultaEntregaVenc.Name = "btConsultaEntregaVenc";
             this.btConsultaEntregaVenc.Size = new System.Drawing.Size(90, 30);
             this.btConsultaEntregaVenc.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.btConsultaEntregaVenc, "Consultar entregas que precisam ser renovadas.");
             this.btConsultaEntregaVenc.UseVisualStyleBackColor = false;
             this.btConsultaEntregaVenc.Click += new System.EventHandler(this.btConsultaEntregaVenc_Click);
             // 
@@ -402,6 +413,7 @@
             this.txtConsultaVenc.Name = "txtConsultaVenc";
             this.txtConsultaVenc.Size = new System.Drawing.Size(350, 25);
             this.txtConsultaVenc.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtConsultaVenc, "Informe o nome do funcionário.");
             // 
             // label7
             // 
@@ -454,6 +466,7 @@
             this.dgEntregaVenc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgEntregaVenc.Size = new System.Drawing.Size(857, 231);
             this.dgEntregaVenc.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.dgEntregaVenc, "Entregas à serem renovadas.");
             this.dgEntregaVenc.DoubleClick += new System.EventHandler(this.dgEntregaVenc_DoubleClick);
             // 
             // tpConsultaEstoque
@@ -519,6 +532,7 @@
             this.dgVisaoEstoque.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgVisaoEstoque.Size = new System.Drawing.Size(861, 301);
             this.dgVisaoEstoque.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.dgVisaoEstoque, "Visão geral do estoque.");
             // 
             // panel1
             // 
@@ -544,6 +558,7 @@
             this.btDeletar.Name = "btDeletar";
             this.btDeletar.Size = new System.Drawing.Size(56, 25);
             this.btDeletar.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.btDeletar, "Excluir entrega selecionada.");
             this.btDeletar.UseVisualStyleBackColor = true;
             this.btDeletar.Click += new System.EventHandler(this.btDeletar_Click);
             // 
@@ -558,6 +573,7 @@
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(56, 25);
             this.btCancelar.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.btCancelar, "Cancelar o registro de entrega.");
             this.btCancelar.UseVisualStyleBackColor = false;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
@@ -571,6 +587,7 @@
             this.btConsultar.Name = "btConsultar";
             this.btConsultar.Size = new System.Drawing.Size(56, 25);
             this.btConsultar.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.btConsultar, "Consultar registro de entrega.");
             this.btConsultar.UseVisualStyleBackColor = true;
             this.btConsultar.Click += new System.EventHandler(this.btConsultar_Click);
             // 
@@ -585,6 +602,7 @@
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(56, 25);
             this.btSalvar.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.btSalvar, "Salvar registro.");
             this.btSalvar.UseVisualStyleBackColor = false;
             this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
@@ -599,6 +617,7 @@
             this.btNovo.Name = "btNovo";
             this.btNovo.Size = new System.Drawing.Size(56, 25);
             this.btNovo.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.btNovo, "Registrar nova entrega.");
             this.btNovo.UseVisualStyleBackColor = false;
             this.btNovo.Click += new System.EventHandler(this.btNovo_Click);
             // 
@@ -691,5 +710,6 @@
         private System.Windows.Forms.TextBox txtConsultaFuncEnt;
         private System.Windows.Forms.Label lbConsultaFuncEnt;
         private System.Windows.Forms.DateTimePicker dtpDataEntrega;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

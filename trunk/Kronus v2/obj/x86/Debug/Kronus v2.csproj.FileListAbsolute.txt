@@ -53,3 +53,6 @@ E:\C# Programs\Kronus beta\Kronus v2\obj\x86\Debug\Kronus_v2.wfItem.resources
 E:\C# Programs\Kronus beta\Kronus v2\obj\x86\Debug\GenerateResource.read.1.tlog
 E:\C# Programs\Kronus beta\Kronus v2\obj\x86\Debug\GenerateResource.write.1.tlog
 E:\C# Programs\Kronus beta\Kronus v2\obj\x86\Debug\Kronus_v2.Gui.wfEntrega.resources
+E:\C# Programs\Kronus beta\Kronus v2\obj\x86\Debug\Kronus_v2.Relatorios.wfRelatorioCompras.resources
+E:\C# Programs\Kronus beta\Kronus v2\bin\Debug\Kronus v2.exe.config
+E:\C# Programs\Kronus beta\Kronus v2\obj\x86\Debug\Kronus_v2.Gui.wfRelatorio.resources

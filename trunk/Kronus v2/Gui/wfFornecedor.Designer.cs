@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wfFornecedor));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtemailFornec = new System.Windows.Forms.TextBox();
             this.mtTelFornec = new System.Windows.Forms.MaskedTextBox();
@@ -51,6 +53,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnFornecedor = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgFornec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -85,6 +88,7 @@
             this.txtemailFornec.Name = "txtemailFornec";
             this.txtemailFornec.Size = new System.Drawing.Size(260, 25);
             this.txtemailFornec.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.txtemailFornec, "Email do fornecedor.");
             this.txtemailFornec.Validating += new System.ComponentModel.CancelEventHandler(this.txtemailFornec_Validating);
             // 
             // mtTelFornec
@@ -94,6 +98,7 @@
             this.mtTelFornec.Name = "mtTelFornec";
             this.mtTelFornec.Size = new System.Drawing.Size(118, 25);
             this.mtTelFornec.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.mtTelFornec, "Telefone do fornecedor.");
             // 
             // btConsultar
             // 
@@ -106,6 +111,7 @@
             this.btConsultar.Name = "btConsultar";
             this.btConsultar.Size = new System.Drawing.Size(90, 30);
             this.btConsultar.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.btConsultar, "Consultar fornecedor.");
             this.btConsultar.UseVisualStyleBackColor = false;
             this.btConsultar.Click += new System.EventHandler(this.btConsultar_Click);
             // 
@@ -116,6 +122,7 @@
             this.txtConsultaFornec.Name = "txtConsultaFornec";
             this.txtConsultaFornec.Size = new System.Drawing.Size(358, 25);
             this.txtConsultaFornec.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.txtConsultaFornec, "Informe o nome do fornecedor.");
             // 
             // txtNomeFornec
             // 
@@ -124,6 +131,7 @@
             this.txtNomeFornec.Name = "txtNomeFornec";
             this.txtNomeFornec.Size = new System.Drawing.Size(358, 25);
             this.txtNomeFornec.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.txtNomeFornec, "Nome do fornecedor.");
             this.txtNomeFornec.Validating += new System.ComponentModel.CancelEventHandler(this.txtNomeFornec_Validating);
             // 
             // label5
@@ -194,6 +202,7 @@
             this.btExcluir.Name = "btExcluir";
             this.btExcluir.Size = new System.Drawing.Size(56, 25);
             this.btExcluir.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.btExcluir, "Cancelar / Excuir registro de fornecedor.");
             this.btExcluir.UseVisualStyleBackColor = false;
             this.btExcluir.Click += new System.EventHandler(this.btExcluir_Click);
             // 
@@ -208,6 +217,7 @@
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(56, 25);
             this.btSalvar.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.btSalvar, "Salvar registro.");
             this.btSalvar.UseVisualStyleBackColor = false;
             this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
@@ -222,6 +232,7 @@
             this.btNovo.Name = "btNovo";
             this.btNovo.Size = new System.Drawing.Size(56, 25);
             this.btNovo.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.btNovo, "Novo registro de fornecedor.");
             this.btNovo.UseVisualStyleBackColor = false;
             this.btNovo.Click += new System.EventHandler(this.btNovo_Click);
             // 
@@ -242,7 +253,7 @@
             this.dgFornec.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -252,10 +263,21 @@
             this.dgFornec.MultiSelect = false;
             this.dgFornec.Name = "dgFornec";
             this.dgFornec.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgFornec.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgFornec.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgFornec.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgFornec.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgFornec.Size = new System.Drawing.Size(676, 195);
             this.dgFornec.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.dgFornec, "Fornecedores registrados");
             this.dgFornec.DoubleClick += new System.EventHandler(this.dgFornec_DoubleClick);
             // 
             // errorProvider1
@@ -333,5 +355,6 @@
         private System.Windows.Forms.Panel pnFornecedor;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtemailFornec;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

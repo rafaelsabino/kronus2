@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -35,10 +36,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Logar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.txtLogin = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -52,8 +54,8 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.Logar);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtSenha);
+            this.groupBox1.Controls.Add(this.txtLogin);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(2, 55);
             this.groupBox1.Name = "groupBox1";
@@ -83,7 +85,8 @@
             this.Cancelar.Location = new System.Drawing.Point(314, 135);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(109, 35);
-            this.Cancelar.TabIndex = 2;
+            this.Cancelar.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.Cancelar, "Sair da aplicação.");
             this.Cancelar.UseVisualStyleBackColor = false;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
@@ -107,8 +110,10 @@
             this.Logar.Location = new System.Drawing.Point(167, 135);
             this.Logar.Name = "Logar";
             this.Logar.Size = new System.Drawing.Size(109, 35);
-            this.Logar.TabIndex = 1;
+            this.Logar.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.Logar, "Confirmar acesso.");
             this.Logar.UseVisualStyleBackColor = false;
+            this.Logar.Click += new System.EventHandler(this.Logar_Click);
             // 
             // label1
             // 
@@ -120,19 +125,22 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Login";
             // 
-            // textBox2
+            // txtSenha
             // 
-            this.textBox2.Location = new System.Drawing.Point(141, 94);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(282, 25);
-            this.textBox2.TabIndex = 1;
+            this.txtSenha.Location = new System.Drawing.Point(141, 94);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(282, 25);
+            this.txtSenha.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.txtSenha, "Senha de acesso.");
+            this.txtSenha.UseSystemPasswordChar = true;
             // 
-            // textBox1
+            // txtLogin
             // 
-            this.textBox1.Location = new System.Drawing.Point(143, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(280, 25);
-            this.textBox1.TabIndex = 0;
+            this.txtLogin.Location = new System.Drawing.Point(143, 46);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(280, 25);
+            this.txtLogin.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtLogin, "Nome de acesso.");
             // 
             // panel1
             // 
@@ -183,10 +191,11 @@
         private System.Windows.Forms.Button Cancelar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSenha;
+        private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

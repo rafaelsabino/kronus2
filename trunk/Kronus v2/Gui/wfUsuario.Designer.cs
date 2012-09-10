@@ -53,6 +53,7 @@
             this.lbCodUsuario = new System.Windows.Forms.Label();
             this.dgUsuário = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUsuário)).BeginInit();
@@ -92,6 +93,7 @@
             this.btExcluir.Name = "btExcluir";
             this.btExcluir.Size = new System.Drawing.Size(56, 25);
             this.btExcluir.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.btExcluir, "Cancelar / Excluir registro de usuário.");
             this.btExcluir.UseVisualStyleBackColor = false;
             this.btExcluir.Click += new System.EventHandler(this.btExcluir_Click);
             // 
@@ -106,6 +108,7 @@
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(56, 25);
             this.btSalvar.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.btSalvar, "Salvar registro.");
             this.btSalvar.UseVisualStyleBackColor = false;
             this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
@@ -120,6 +123,7 @@
             this.btNovo.Name = "btNovo";
             this.btNovo.Size = new System.Drawing.Size(56, 25);
             this.btNovo.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.btNovo, "Novo registro de usuário.");
             this.btNovo.UseVisualStyleBackColor = false;
             this.btNovo.Click += new System.EventHandler(this.btNovo_Click);
             // 
@@ -158,6 +162,7 @@
             this.btConsultar.Name = "btConsultar";
             this.btConsultar.Size = new System.Drawing.Size(90, 30);
             this.btConsultar.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.btConsultar, "Consultar usuário.");
             this.btConsultar.UseVisualStyleBackColor = false;
             this.btConsultar.Click += new System.EventHandler(this.btConsultar_Click);
             // 
@@ -168,6 +173,7 @@
             this.txtConsulta.Name = "txtConsulta";
             this.txtConsulta.Size = new System.Drawing.Size(357, 25);
             this.txtConsulta.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.txtConsulta, "Informe o nome do usuário.");
             // 
             // label6
             // 
@@ -190,6 +196,7 @@
             this.chbAcesso.Size = new System.Drawing.Size(120, 21);
             this.chbAcesso.TabIndex = 9;
             this.chbAcesso.Text = "Administrador.";
+            this.toolTip1.SetToolTip(this.chbAcesso, "Tipo de acesso.");
             this.chbAcesso.UseVisualStyleBackColor = true;
             // 
             // txtConfirma
@@ -198,6 +205,7 @@
             this.txtConfirma.Name = "txtConfirma";
             this.txtConfirma.Size = new System.Drawing.Size(172, 25);
             this.txtConfirma.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.txtConfirma, "Confirmação da senha de acesso.");
             this.txtConfirma.UseSystemPasswordChar = true;
             this.txtConfirma.Validating += new System.ComponentModel.CancelEventHandler(this.txtConfirma_Validating);
             // 
@@ -217,6 +225,7 @@
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(172, 25);
             this.txtSenha.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.txtSenha, "Senha de acesso.");
             this.txtSenha.UseSystemPasswordChar = true;
             this.txtSenha.Validating += new System.ComponentModel.CancelEventHandler(this.txtSenha_Validating);
             // 
@@ -236,6 +245,7 @@
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(337, 25);
             this.txtLogin.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.txtLogin, "Nome de acesso para o usuário realizar \r\nautenticação no sistema.");
             this.txtLogin.Validating += new System.ComponentModel.CancelEventHandler(this.txtLogin_Validating);
             // 
             // label3
@@ -255,6 +265,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(319, 25);
             this.txtNome.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.txtNome, "Nome do usuário.");
             this.txtNome.Validating += new System.ComponentModel.CancelEventHandler(this.txtNome_Validating);
             // 
             // label2
@@ -309,6 +320,7 @@
             this.dgUsuário.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgUsuário.Size = new System.Drawing.Size(622, 183);
             this.dgUsuário.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.dgUsuário, "Usuários registrados.");
             this.dgUsuário.DoubleClick += new System.EventHandler(this.dgUsuário_DoubleClick);
             // 
             // errorProvider1
@@ -366,5 +378,6 @@
         private System.Windows.Forms.Button btConsultar;
         private System.Windows.Forms.DataGridView dgUsuário;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

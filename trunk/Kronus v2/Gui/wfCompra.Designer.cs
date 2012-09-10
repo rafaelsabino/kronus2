@@ -32,10 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wfCompra));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btDelete = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
@@ -74,6 +70,7 @@
             this.lbItem = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.tcCompra.SuspendLayout();
             this.nota.SuspendLayout();
@@ -111,6 +108,7 @@
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(56, 25);
             this.btDelete.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.btDelete, "Excluir dados do registro da nota fiscal.");
             this.btDelete.UseVisualStyleBackColor = false;
             this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
@@ -126,6 +124,7 @@
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(56, 25);
             this.btCancelar.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.btCancelar, "Cancelar Registro.");
             this.btCancelar.UseVisualStyleBackColor = false;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
@@ -141,6 +140,7 @@
             this.btConsultaGeral.Name = "btConsultaGeral";
             this.btConsultaGeral.Size = new System.Drawing.Size(56, 25);
             this.btConsultaGeral.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.btConsultaGeral, "Consultar registro de nota fiscal.");
             this.btConsultaGeral.UseVisualStyleBackColor = false;
             this.btConsultaGeral.Click += new System.EventHandler(this.btConsultaGeral_Click);
             // 
@@ -156,6 +156,7 @@
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(56, 25);
             this.btSalvar.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.btSalvar, "Salvar dados do registro.");
             this.btSalvar.UseVisualStyleBackColor = false;
             this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
@@ -171,6 +172,7 @@
             this.btEditar.Name = "btEditar";
             this.btEditar.Size = new System.Drawing.Size(56, 25);
             this.btEditar.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.btEditar, "Editar registro de nota fiscal.");
             this.btEditar.UseVisualStyleBackColor = false;
             this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
             // 
@@ -186,6 +188,7 @@
             this.btNovo.Name = "btNovo";
             this.btNovo.Size = new System.Drawing.Size(56, 25);
             this.btNovo.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.btNovo, "Novo registro de nota fiscal.");
             this.btNovo.UseVisualStyleBackColor = false;
             this.btNovo.Click += new System.EventHandler(this.btNovo_Click);
             // 
@@ -226,22 +229,6 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dgCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgCompra.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgCompra.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgCompra.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgCompra.Location = new System.Drawing.Point(14, 159);
             this.dgCompra.MultiSelect = false;
@@ -251,6 +238,7 @@
             this.dgCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgCompra.Size = new System.Drawing.Size(855, 201);
             this.dgCompra.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.dgCompra, "Notas fiscais registradas.");
             this.dgCompra.DoubleClick += new System.EventHandler(this.dgCompra_DoubleClick);
             // 
             // groupBox1
@@ -288,6 +276,7 @@
             this.btConsultaCompra.Name = "btConsultaCompra";
             this.btConsultaCompra.Size = new System.Drawing.Size(90, 30);
             this.btConsultaCompra.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.btConsultaCompra, "Consultar notas fiscais.");
             this.btConsultaCompra.UseVisualStyleBackColor = false;
             this.btConsultaCompra.Click += new System.EventHandler(this.btConsultaCompra_Click);
             // 
@@ -299,6 +288,7 @@
             this.dtpInicial.Name = "dtpInicial";
             this.dtpInicial.Size = new System.Drawing.Size(133, 25);
             this.dtpInicial.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.dtpInicial, "Data inicial");
             this.dtpInicial.Value = new System.DateTime(2012, 8, 22, 0, 0, 0, 0);
             // 
             // lbConsulta
@@ -319,6 +309,7 @@
             this.dtpFinal.Name = "dtpFinal";
             this.dtpFinal.Size = new System.Drawing.Size(133, 25);
             this.dtpFinal.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.dtpFinal, "Data final.");
             this.dtpFinal.Value = new System.DateTime(2012, 8, 22, 0, 0, 0, 0);
             // 
             // dtpDataCompra
@@ -329,6 +320,7 @@
             this.dtpDataCompra.Name = "dtpDataCompra";
             this.dtpDataCompra.Size = new System.Drawing.Size(133, 25);
             this.dtpDataCompra.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.dtpDataCompra, "Data da compra.");
             this.dtpDataCompra.Value = new System.DateTime(2012, 8, 22, 0, 0, 0, 0);
             this.dtpDataCompra.Validating += new System.ComponentModel.CancelEventHandler(this.dtpDataCompra_Validating_1);
             // 
@@ -340,6 +332,7 @@
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(110, 25);
             this.txtValor.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.txtValor, "Valor total da nota fiscal.");
             this.txtValor.Validating += new System.ComponentModel.CancelEventHandler(this.txtValor_Validating);
             // 
             // txtNumero
@@ -350,6 +343,7 @@
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(100, 25);
             this.txtNumero.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.txtNumero, "Número da nota fiscal.");
             this.txtNumero.Validating += new System.ComponentModel.CancelEventHandler(this.txtNumero_Validating);
             // 
             // lbValor
@@ -418,27 +412,11 @@
             this.dgNota.AllowUserToAddRows = false;
             this.dgNota.AllowUserToDeleteRows = false;
             this.dgNota.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgNota.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgNota.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgNota.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dgNota.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgNota.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgNota.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgNota.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dgNota.Location = new System.Drawing.Point(14, 155);
             this.dgNota.MultiSelect = false;
@@ -448,6 +426,7 @@
             this.dgNota.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgNota.Size = new System.Drawing.Size(855, 203);
             this.dgNota.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.dgNota, "E. P. Is componentes da nota fiscal. ");
             this.dgNota.DoubleClick += new System.EventHandler(this.dgNota_DoubleClick);
             // 
             // groupBox2
@@ -657,5 +636,6 @@
         private System.Windows.Forms.Button btConsultaCompra;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

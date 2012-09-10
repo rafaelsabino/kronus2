@@ -11,11 +11,14 @@ namespace Kronus_v2.br.data
     class clsDataBaseConnection
     {
         #region Variavel.
-        public enum tipoacao { insere, atualiza }
-        #endregion
-        #region Conexão com Banco de Dados
 
+        public enum tipoacao { insere, atualiza }
         String strCon = @"Data Source=EDIEL-PC;Initial Catalog=Kronus;Persist Security Info=True;User ID=sa;Password=mandioca";
+
+        #endregion
+
+        #region Conexão com Banco de Dados
+        
 
         public DataTable retornaDataTable(String sqlCommand)
         {

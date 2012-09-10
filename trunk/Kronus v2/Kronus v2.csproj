@@ -11,7 +11,8 @@
     <RootNamespace>Kronus_v2</RootNamespace>
     <AssemblyName>Kronus v2</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -34,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +65,11 @@
     <Compile Include="br.model\clslogEntrega.cs" />
     <Compile Include="br.model\clsNotaFiscal.cs" />
     <Compile Include="br.model\clsUsuário.cs" />
+    <Compile Include="dataSets\dsCompras.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCompras.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Gui\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +100,12 @@
     <Compile Include="Gui\wfFuncionario.Designer.cs">
       <DependentUpon>wfFuncionario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gui\wfRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\wfRelatorio.Designer.cs">
+      <DependentUpon>wfRelatorio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\wfUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +127,18 @@
     <Compile Include="Gui\wfItem.Designer.cs">
       <DependentUpon>wfItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Relatorios\crvCompras.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crvCompras.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\wfRelatorioCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorios\wfRelatorioCompras.Designer.cs">
+      <DependentUpon>wfRelatorioCompras.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Gui\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\wfFuncionario.resx">
       <DependentUpon>wfFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\wfRelatorio.resx">
+      <DependentUpon>wfRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gui\wfUsuario.resx">
       <DependentUpon>wfUsuario.cs</DependentUpon>
@@ -140,6 +176,25 @@
     <EmbeddedResource Include="Gui\wfItem.resx">
       <DependentUpon>wfItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\crvCompras.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crvCompras.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\wfRelatorioCompras.resx">
+      <DependentUpon>wfRelatorioCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="dataSets\dsCompras.xsc">
+      <DependentUpon>dsCompras.xsd</DependentUpon>
+    </None>
+    <None Include="dataSets\dsCompras.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCompras.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dataSets\dsCompras.xss">
+      <DependentUpon>dsCompras.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -150,7 +205,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
