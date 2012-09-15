@@ -70,6 +70,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCompras.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dataSets\dsEntregaFuncionario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsEntregaFuncionario.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Gui\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +138,18 @@
       <DependentUpon>crvCompras.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Relatorios\crvEntregaFuncionario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crvEntregaFuncionario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Relatorios\wfEntregaFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorios\wfEntregaFuncionario.Designer.cs">
+      <DependentUpon>wfEntregaFuncionario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Relatorios\wfRelatorioCompras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +197,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crvCompras.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\crvEntregaFuncionario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crvEntregaFuncionario.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\wfEntregaFuncionario.resx">
+      <DependentUpon>wfEntregaFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\wfRelatorioCompras.resx">
       <DependentUpon>wfRelatorioCompras.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +218,17 @@
     </None>
     <None Include="dataSets\dsCompras.xss">
       <DependentUpon>dsCompras.xsd</DependentUpon>
+    </None>
+    <None Include="dataSets\dsEntregaFuncionario.xsc">
+      <DependentUpon>dsEntregaFuncionario.xsd</DependentUpon>
+    </None>
+    <None Include="dataSets\dsEntregaFuncionario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsEntregaFuncionario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dataSets\dsEntregaFuncionario.xss">
+      <DependentUpon>dsEntregaFuncionario.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

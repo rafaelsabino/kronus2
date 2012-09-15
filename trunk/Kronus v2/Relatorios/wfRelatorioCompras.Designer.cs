@@ -45,6 +45,7 @@
             this.wfCrystalCompras.ShowCloseButton = false;
             this.wfCrystalCompras.ShowCopyButton = false;
             this.wfCrystalCompras.ShowGroupTreeButton = false;
+            this.wfCrystalCompras.ShowParameterPanelButton = false;
             this.wfCrystalCompras.ShowZoomButton = false;
             this.wfCrystalCompras.Size = new System.Drawing.Size(882, 368);
             this.wfCrystalCompras.TabIndex = 0;
