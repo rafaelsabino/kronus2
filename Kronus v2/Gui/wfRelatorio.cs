@@ -24,12 +24,21 @@ namespace Kronus_v2.Gui
                 dtpInicial.Focus();
             }
             else {
-                
-                if(utilCls.relatorio == 1){
+
+                if (utilCls.relatorio == 1)
+                {
                     this.Tag = false;
                     this.Close();
                     Form rel = new Relatorios.wfRelatorioCompras(this);
                     rel.Show();
+                }
+                else { 
+                    if(utilCls.relatorio == 2){
+                        this.Tag = false;
+                        this.Close();
+                        Form rel = new Relatorios.wfEntregaFuncionario(this);
+                        rel.Show();
+                    }
                 }
             }
         }
