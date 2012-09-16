@@ -149,6 +149,7 @@ namespace Kronus_v2
                 }
                 else {
                     errorProvider1.SetError(txtCa, String.Empty);
+                    cbFornecedor.Focus();
                 }
                 
             }
@@ -175,6 +176,7 @@ namespace Kronus_v2
                 else
                 {
                     errorProvider1.SetError(txtNomeItem, String.Empty);
+                    txtTamanho.Focus();
                 }
             }
         }
@@ -198,6 +200,7 @@ namespace Kronus_v2
                 else
                 {
                     errorProvider1.SetError(txtTamanho, String.Empty);
+                    txtDescricao.Focus();
                 }
             }
         }
@@ -233,6 +236,7 @@ namespace Kronus_v2
                     else
                     {
                         errorProvider1.SetError(txtDescricao, String.Empty);
+                        txtEstoqueMin.Focus();
                     }
                 }                
             }
@@ -275,6 +279,7 @@ namespace Kronus_v2
             }
             else {
                 errorProvider1.SetError(cbFornecedor, String.Empty);
+                txtNomeItem.Focus();
             }
         }
 
@@ -430,7 +435,6 @@ namespace Kronus_v2
             errorProvider1.SetError(txtEstoqueMin, String.Empty);
             errorProvider1.SetError(txtTamanho, String.Empty);
             btDeletar.Enabled = true;
-            btSalvar.Enabled = true;
         }
 
              

@@ -144,11 +144,23 @@
       <DependentUpon>crvEntregaFuncionario.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Relatorios\crvRelatorioEpi.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crvRelatorioEpi.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Relatorios\wfEntregaFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Relatorios\wfEntregaFuncionario.Designer.cs">
       <DependentUpon>wfEntregaFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\wfRelarorioEntregaEpi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorios\wfRelarorioEntregaEpi.Designer.cs">
+      <DependentUpon>wfRelarorioEntregaEpi.cs</DependentUpon>
     </Compile>
     <Compile Include="Relatorios\wfRelatorioCompras.cs">
       <SubType>Form</SubType>
@@ -201,8 +213,15 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crvEntregaFuncionario.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\crvRelatorioEpi.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crvRelatorioEpi.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\wfEntregaFuncionario.resx">
       <DependentUpon>wfEntregaFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\wfRelarorioEntregaEpi.resx">
+      <DependentUpon>wfRelarorioEntregaEpi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\wfRelatorioCompras.resx">
       <DependentUpon>wfRelatorioCompras.cs</DependentUpon>

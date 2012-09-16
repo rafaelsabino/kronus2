@@ -194,7 +194,7 @@ namespace Kronus_v2.Gui
                 inicial();
             }
             else {
-                tcCompra.SelectedIndex = 0;
+               
                 inicial();
             }
             
@@ -287,6 +287,7 @@ namespace Kronus_v2.Gui
             }
             else {
                 errorProvider1.SetError(this.txtNumero, String.Empty);
+                dtpDataCompra.Focus();
             }
         }
 
@@ -303,7 +304,8 @@ namespace Kronus_v2.Gui
                 Double valor;
                 if(Double.TryParse(this.txtValor.Text, System.Globalization.NumberStyles.Currency, null, out valor)){
                     errorProvider1.SetError(this.txtValor, String.Empty);
-                    btSalvar.Enabled = true;   
+                    btSalvar.Enabled = true;
+                    btSalvar.Select();
                 }               
             }
         }
@@ -396,6 +398,7 @@ namespace Kronus_v2.Gui
             }
             else {
                 errorProvider1.SetError(this.dtpDataCompra, String.Empty);
+                txtValor.Focus();
             }
         }
 
@@ -523,6 +526,7 @@ namespace Kronus_v2.Gui
                 errorProvider1.SetError(this.cbItemCompra, String.Empty);
                 cargaComboDescricao();
                 cbDescricaoCompra.Text = "                Descrição             ";
+                cbDescricaoCompra.Focus();
             }
         }
 
@@ -538,6 +542,7 @@ namespace Kronus_v2.Gui
                 errorProvider1.SetError(this.cbDescricaoCompra, String.Empty);
                 cargaComboTamanho();
                 cbTamanhoItem.Text = " Tamanho";
+                cbTamanhoItem.Focus();
             }
         }
 
@@ -551,6 +556,7 @@ namespace Kronus_v2.Gui
             }
             else {
                 errorProvider1.SetError(this.cbTamanhoItem, String.Empty);
+                txtQtdCompra.Focus();
 
             }
         }
@@ -566,6 +572,7 @@ namespace Kronus_v2.Gui
             }
             else {
                 errorProvider1.SetError(this.txtQtdCompra, String.Empty);
+                txtValorUnitario.Focus();
             }
         }
 
@@ -583,6 +590,7 @@ namespace Kronus_v2.Gui
                 if(Double.TryParse(this.txtValorUnitario.Text, System.Globalization.NumberStyles.Currency, null, out valor)){
                     errorProvider1.SetError(this.txtValorUnitario, String.Empty);
                     btSalvar.Enabled = true;
+                    btSalvar.Select();
                 }
                 
             }

@@ -76,3 +76,4 @@ E:\C# Programs\Kronus 2.0\Kronus v2\obj\x86\Debug\Kronus_v2.Relatorios.wfEntrega
 E:\C# Programs\Kronus 2.0\Kronus v2\obj\x86\Debug\Kronus_v2.Relatorios.wfRelatorioCompras.resources
 E:\C# Programs\Kronus 2.0\Kronus v2\obj\x86\Debug\GenerateResource.read.1.tlog
 E:\C# Programs\Kronus 2.0\Kronus v2\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\C# Programs\Kronus 2.0\Kronus v2\obj\x86\Debug\Kronus_v2.Relatorios.wfRelarorioEntregaEpi.resources

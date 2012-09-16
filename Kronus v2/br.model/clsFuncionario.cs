@@ -75,9 +75,9 @@ namespace Kronus_v2.br.model
                 return result = executaSql(sql);
             }
             //método para carregar combo funcionarios
-            public System.Data.DataTable carregarCombo() {
+            public System.Data.DataTable carregarCombo(String value = "1=1") {
                 System.Data.DataTable dt = new System.Data.DataTable();
-                String sql = "select *from funcionario";
+                String sql = "select * from funcionario where " + value;
                 return dt = retornaDataTable(sql);
             
             }

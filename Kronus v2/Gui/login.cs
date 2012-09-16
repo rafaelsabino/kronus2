@@ -37,9 +37,10 @@ namespace Kronus_v2
         private void Logar_Click(object sender, EventArgs e)
         {
             br.data.clsDataBaseConnection db = new br.data.clsDataBaseConnection();
-            
+            try
+            {
                 DataTable dt = db.retornaDataTable("select nome_user, login_user, senha_user, tipo_user from Usuario where login_user = '" + txtLogin.Text +
-               "' and senha_user = '" + txtSenha.Text + "'");
+              "' and senha_user = '" + txtSenha.Text + "'");
                 if (dt.Rows.Count > 0)
                 {
                     String login = dt.Rows[0]["login_user"].ToString();
@@ -53,35 +54,40 @@ namespace Kronus_v2
                         txtSenha.Text = String.Empty;
                         txtLogin.Focus();
                     }
-                    else {
+                    else
+                    {
                         if (String.Compare(senha, txtSenha.Text, false) != 0)
                         {
                             MessageBox.Show("A senha informada é diferente da senha cadastrada.\nInforme a senha novamente!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             txtSenha.Text = String.Empty;
                             txtSenha.Focus();
                         }
-                        else {
+                        else
+                        {
                             if (DateTime.Now.Hour >= 0 && DateTime.Now.Hour < 6)
                             {
                                 MessageBox.Show("Bem vindo " + nome + "!\nQue disposição, hein!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
-                            else {
+                            else
+                            {
                                 if (DateTime.Now.Hour >= 6 && DateTime.Now.Hour < 12)
                                 {
                                     MessageBox.Show("Bem vindo " + nome + "!\nTenha um bom dia!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
-                                else {
+                                else
+                                {
                                     if (DateTime.Now.Hour >= 12 && DateTime.Now.Hour < 18)
                                     {
                                         MessageBox.Show("Bem vindo  " + nome + "!\nTenha uma boa tarde!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     }
-                                    else {
+                                    else
+                                    {
                                         MessageBox.Show("Bem vindo " + nome + "!\nTenha uma boa noite!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     }
                                 }
                             }
                             this.wfHome.mnPrincipal.Enabled = true;
-                                                     
+
                             if (tipo == 0)
                             {
                                 this.wfHome.fornecedoresToolStripMenuItem.Visible = true;
@@ -92,8 +98,10 @@ namespace Kronus_v2
                                 this.wfHome.administraçãoToolStripMenuItem.Visible = true;
                                 this.wfHome.statusStrip1.Items[0].Text = "\tUSUÁRIO : " + nome;
                             }
-                            else {
-                                if(tipo == 1){
+                            else
+                            {
+                                if (tipo == 1)
+                                {
                                     this.wfHome.fornecedoresToolStripMenuItem.Visible = false;
                                     this.wfHome.equipamentoProteçãoIndividualToolStripMenuItem.Visible = false;
                                     this.wfHome.comprasToolStripMenuItem.Visible = false;
@@ -101,21 +109,29 @@ namespace Kronus_v2
                                     this.wfHome.relatóriosToolStripMenuItem.Visible = false;
                                     this.wfHome.administraçãoToolStripMenuItem.Visible = false;
                                     this.wfHome.statusStrip1.Items[0].Text = "\tUSUÁRIO : " + nome;
-                                }                                
+                                }
                             }
-                            this.Tag = false;                            
+                            this.Tag = false;
                             this.Close();
 
-                            
+
                         }
                     }
                 }
-                else {
+                else
+                {
                     MessageBox.Show("Usuário ou senha estão incorretos.\nDigite novamente!", "kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtLogin.Text = String.Empty;
                     txtSenha.Text = String.Empty;
-                    txtLogin.Focus();                
+                    txtLogin.Focus();
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+               
         }
 
        
