@@ -64,6 +64,8 @@
             // 
             this.mnPrincipal.AutoSize = false;
             this.mnPrincipal.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.mnPrincipal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mnPrincipal.BackgroundImage")));
+            this.mnPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mnPrincipal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mnPrincipal.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -123,8 +125,8 @@
             this.cadastrosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cadastrosToolStripMenuItem.Image")));
             this.cadastrosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(119, 34);
-            this.cadastrosToolStripMenuItem.Text = "Cadastros";
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(115, 34);
+            this.cadastrosToolStripMenuItem.Text = "Registros";
             this.cadastrosToolStripMenuItem.ToolTipText = "Acesso aos Registros.";
             // 
             // fornecedoresToolStripMenuItem
@@ -196,34 +198,34 @@
             // 
             this.comprasToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comprasToolStripMenuItem1.Name = "comprasToolStripMenuItem1";
-            this.comprasToolStripMenuItem1.Size = new System.Drawing.Size(204, 22);
-            this.comprasToolStripMenuItem1.Text = "Compras";
+            this.comprasToolStripMenuItem1.Size = new System.Drawing.Size(226, 22);
+            this.comprasToolStripMenuItem1.Text = "Compras no período";
             this.comprasToolStripMenuItem1.Click += new System.EventHandler(this.comprasToolStripMenuItem1_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(201, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(223, 6);
             // 
             // consumoFuncionárioToolStripMenuItem
             // 
             this.consumoFuncionárioToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.consumoFuncionárioToolStripMenuItem.Name = "consumoFuncionárioToolStripMenuItem";
-            this.consumoFuncionárioToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.consumoFuncionárioToolStripMenuItem.Text = "Consumo Funcionário";
+            this.consumoFuncionárioToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.consumoFuncionárioToolStripMenuItem.Text = "Consumo por colaborador";
             this.consumoFuncionárioToolStripMenuItem.Click += new System.EventHandler(this.consumoFuncionárioToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(201, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(223, 6);
             // 
             // itensEntreguePeríodoToolStripMenuItem
             // 
             this.itensEntreguePeríodoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.itensEntreguePeríodoToolStripMenuItem.Name = "itensEntreguePeríodoToolStripMenuItem";
-            this.itensEntreguePeríodoToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.itensEntreguePeríodoToolStripMenuItem.Text = "Itens Entregue Período";
+            this.itensEntreguePeríodoToolStripMenuItem.Size = new System.Drawing.Size(226, 22);
+            this.itensEntreguePeríodoToolStripMenuItem.Text = "E. P. I. entregue no período";
             this.itensEntreguePeríodoToolStripMenuItem.Click += new System.EventHandler(this.itensEntreguePeríodoToolStripMenuItem_Click);
             // 
             // administraçãoToolStripMenuItem
@@ -242,13 +244,15 @@
             // 
             this.usuáriosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
-            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuáriosToolStripMenuItem.Text = "Usuários";
             this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.statusStrip1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("statusStrip1.BackgroundImage")));
+            this.statusStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 310);
@@ -293,11 +297,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(728, 332);
             this.Controls.Add(this.data);
             this.Controls.Add(this.dataHora);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.mnPrincipal);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.mnPrincipal;

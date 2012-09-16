@@ -271,6 +271,7 @@ namespace Kronus_v2.Gui
                     else
                     {
                         errorProvider1.SetError(this.txtNome, String.Empty);
+                        txtLogin.Focus();
                     }
                 }
                 
@@ -294,6 +295,7 @@ namespace Kronus_v2.Gui
                 }else
                     {
                         errorProvider1.SetError(this.txtLogin, String.Empty);
+                        txtSenha.Focus();
                     }
             }
             br.model.clsUsuário u = new br.model.clsUsuário();
@@ -331,6 +333,7 @@ namespace Kronus_v2.Gui
                     }
                     else {
                         errorProvider1.SetError(this.txtSenha, String.Empty);
+                        txtConfirma.Focus();
                     }            
                 }                
             }

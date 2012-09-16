@@ -49,6 +49,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.Cancelar);
             this.groupBox1.Controls.Add(this.label2);
@@ -79,9 +80,10 @@
             // 
             this.Cancelar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Cancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Cancelar.BackgroundImage")));
-            this.Cancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Cancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Cancelar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cancelar.Image = ((System.Drawing.Image)(resources.GetObject("Cancelar.Image")));
             this.Cancelar.Location = new System.Drawing.Point(314, 135);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(109, 35);
@@ -104,9 +106,10 @@
             // 
             this.Logar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Logar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Logar.BackgroundImage")));
-            this.Logar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Logar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Logar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.Logar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Logar.Image = ((System.Drawing.Image)(resources.GetObject("Logar.Image")));
             this.Logar.Location = new System.Drawing.Point(167, 135);
             this.Logar.Name = "Logar";
             this.Logar.Size = new System.Drawing.Size(109, 35);
@@ -145,6 +148,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -170,6 +175,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "login";
