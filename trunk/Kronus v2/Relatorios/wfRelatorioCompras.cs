@@ -23,10 +23,8 @@ namespace Kronus_v2.Relatorios
         }
 
         private void wfRelatorioCompras_Load(object sender, EventArgs e)
-        {
-            
-            rl.Tag = false;
-            rl.Close(); // fechar formulario relatorio
+        {          
+           
 
             Relatorios.crvCompras rpt = new crvCompras(); //instancia objeto crystal report view (relatorio)
 

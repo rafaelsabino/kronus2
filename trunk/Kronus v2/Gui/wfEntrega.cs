@@ -28,7 +28,7 @@ namespace Kronus_v2.Gui
             br.model.clsFuncionario f = new br.model.clsFuncionario();
             try
             {
-                cbFuncionario.DataSource = f.carregarCombo();
+                cbFuncionario.DataSource = f.carregarCombo("status_funcionario = 'ATIVO'");
                 cbFuncionario.DisplayMember = ("nome_funcionario");
                 cbFuncionario.ValueMember = ("cod_funcionario");
             }
@@ -387,6 +387,7 @@ namespace Kronus_v2.Gui
             else {
                 errorProvider1.SetError(txtQuantidade, String.Empty);
                 btSalvar.Enabled = true;
+                btSalvar.Select();
             }
         }
 
@@ -528,8 +529,7 @@ namespace Kronus_v2.Gui
         }
 
         private void dgLogEntrega_DoubleClick(object sender, EventArgs e)
-        {
-            
+        {            
             carregaObjeto();
             
         }

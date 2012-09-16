@@ -99,6 +99,7 @@
             this.mtTelFornec.Size = new System.Drawing.Size(118, 25);
             this.mtTelFornec.TabIndex = 3;
             this.toolTip1.SetToolTip(this.mtTelFornec, "Telefone do fornecedor.");
+            this.mtTelFornec.Validating += new System.ComponentModel.CancelEventHandler(this.mtTelFornec_Validating);
             // 
             // btConsultar
             // 

@@ -88,6 +88,7 @@ namespace Kronus_v2.Gui
 
         private void txtnome_Validating(object sender, CancelEventArgs e)
         {
+
             if (String.IsNullOrEmpty(txtnome.Text) || !br.data.clsDataBaseConnection.validaString(txtnome.Text))
             {
                 errorProvider1.SetError(this.txtnome, "Informe o nome do funcionário.\nEste não deve conter números ou caracteres especiais.");
@@ -95,6 +96,17 @@ namespace Kronus_v2.Gui
                 txtnome.Select();
             }
             else {
+                    errorProvider1.SetError(this.txtnome, String.Empty);
+                    btSalvar.Enabled = true;
+                    btSalvar.Select();                             
+            }
+        }
+
+        private void btSalvar_Click(object sender, EventArgs e)
+        {
+            String status = String.Empty;
+            if (String.IsNullOrEmpty(txtCodigo.Text))
+            {
                 br.model.clsFuncionario f = new br.model.clsFuncionario();
                 System.Data.DataTable dt = f.searchFuncionario("nome_funcionario = '" + txtnome.Text + "'");
                 int linha = dt.Rows.Count;
@@ -104,45 +116,34 @@ namespace Kronus_v2.Gui
                     MessageBox.Show("Esse funcionário já está cadastrado!\nA operação foi cancelada.", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else {
-                    errorProvider1.SetError(this.txtnome, String.Empty);
-                    btSalvar.Enabled = true; 
-                }               
-            }
-        }
-
-        private void btSalvar_Click(object sender, EventArgs e)
-        {
-            String status = String.Empty;
-            if (String.IsNullOrEmpty(txtCodigo.Text))
-            {                
-                try
-                {
-                    br.model.clsFuncionario f = new br.model.clsFuncionario();
-                    f.nomeFuncionario = txtnome.Text;
-                    if (rbAtivo.Checked)
+                    try
                     {
-                        status = "ATIVO";
-                    }
-                    else
-                    {
-                        if (rbAfastado.Checked)
+                        f.nomeFuncionario = txtnome.Text;
+                        if (rbAtivo.Checked)
                         {
-                            status = "AFASTADO";
+                            status = "ATIVO";
                         }
                         else
                         {
-                            status = "DEMITIDO";
+                            if (rbAfastado.Checked)
+                            {
+                                status = "AFASTADO";
+                            }
+                            else
+                            {
+                                status = "DEMITIDO";
+                            }
                         }
+                        f.statusFuncionario = status;
+                        f.addFuncionario();
+                        MessageBox.Show("Funcionário adicionado com sucesso!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    f.statusFuncionario = status;
-                    f.addFuncionario();
-                    MessageBox.Show("Funcionário adicionado com sucesso!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
-                }
+                
             }
             else {
                 try
@@ -172,7 +173,6 @@ namespace Kronus_v2.Gui
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
                 }
 
             }
@@ -183,9 +183,9 @@ namespace Kronus_v2.Gui
         {
             carregaObjeto();            
             btCancelar.Enabled = true;
-            errorProvider1.SetError(this.txtnome, String.Empty);
-            txtnome.CausesValidation = false;
+            errorProvider1.SetError(this.txtnome, String.Empty);           
             txtConsulta.Text = String.Empty;
+            txtnome.Focus();
             cargaGrid();
         }
 
@@ -196,7 +196,6 @@ namespace Kronus_v2.Gui
             rbAtivo.Enabled = true;
             rbAfastado.Enabled = true;
             rbDemitido.Enabled = true;
-            btSalvar.Enabled = true;
             txtConsulta.Enabled = false;
             btConsulta.Enabled = false;
             

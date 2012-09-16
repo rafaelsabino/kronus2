@@ -18,26 +18,34 @@ namespace Kronus_v2.Gui
 
         private void btGeraRelatorio_Click(object sender, EventArgs e)
         {
-            if (dtpInicial.Value > dtpFinal.Value)
+            if (dtpInicial.Value >= dtpFinal.Value)
             {
                 MessageBox.Show("A data inicial deve ser inferior a data final.", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dtpInicial.Focus();
             }
             else {
 
-                if (utilCls.relatorio == 1)
-                {
+                if (utilCls.relatorio == 1){
                     this.Tag = false;
                     this.Close();
                     Form rel = new Relatorios.wfRelatorioCompras(this);
                     rel.Show();
                 }
-                else { 
-                    if(utilCls.relatorio == 2){
+                else {
+                    if (utilCls.relatorio == 2)
+                    {
                         this.Tag = false;
                         this.Close();
                         Form rel = new Relatorios.wfEntregaFuncionario(this);
                         rel.Show();
+                    }
+                    else { 
+                        if(utilCls.relatorio == 3){
+                            this.Tag = false;
+                            this.Close();
+                            Form rel = new Relatorios.wfRelarorioEntregaEpi(this);
+                            rel.Show();
+                        }
                     }
                 }
             }

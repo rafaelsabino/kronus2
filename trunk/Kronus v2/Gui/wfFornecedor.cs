@@ -201,7 +201,8 @@ namespace Kronus_v2
             errorProvider1.SetError(this.txtemailFornec, String.Empty);
             btNovo.Enabled = true;
             btExcluir.Enabled = true;
-            btSalvar.Enabled = true;
+
+            
 
         }
 
@@ -267,10 +268,12 @@ namespace Kronus_v2
                         errorProvider1.SetError(txtNomeFornec, "O nome do fornecedor não pode conter caracteres como: ', #, @, $ ");
                         txtNomeFornec.Text = String.Empty;
                         txtNomeFornec.Select();
+                        btSalvar.Enabled = false;
                     }
                     else
                     {
                         errorProvider1.SetError(this.txtNomeFornec, String.Empty);
+                        mtTelFornec.Focus();
                     }
                     cargaGrid();
                 }
@@ -285,6 +288,7 @@ namespace Kronus_v2
             {
                 errorProvider1.SetError(txtemailFornec, "Informe o email do Fornecedor.");
                 txtemailFornec.Select();
+                btSalvar.Enabled = false;
             }
             else
             {
@@ -293,15 +297,22 @@ namespace Kronus_v2
                     errorProvider1.SetError(txtemailFornec, "Formato de email inválido!");
                     txtemailFornec.Text = String.Empty;
                     txtemailFornec.Select();
+                    btSalvar.Enabled = false;
 
                 }
                 else
                 {
                     errorProvider1.SetError(this.txtemailFornec, String.Empty);
                     btSalvar.Enabled = true;
+                    btSalvar.Select();
                     btExcluir.Enabled = true;
                 }
             }
+        }
+
+        private void mtTelFornec_Validating(object sender, CancelEventArgs e)
+        {
+            txtemailFornec.Focus();
         }
 
               
