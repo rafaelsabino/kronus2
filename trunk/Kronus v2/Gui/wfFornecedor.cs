@@ -315,6 +315,7 @@ namespace Kronus_v2
             txtemailFornec.Focus();
         }
 
+       
               
     }
 }

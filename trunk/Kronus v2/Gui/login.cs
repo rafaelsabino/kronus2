@@ -66,23 +66,23 @@ namespace Kronus_v2
                         {
                             if (DateTime.Now.Hour >= 0 && DateTime.Now.Hour < 6)
                             {
-                                MessageBox.Show("Bem vindo " + nome + "!\nQue disposição, hein!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Bem vindo " + nome + "! Que disposição, hein!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                             {
                                 if (DateTime.Now.Hour >= 6 && DateTime.Now.Hour < 12)
                                 {
-                                    MessageBox.Show("Bem vindo " + nome + "!\nTenha um bom dia!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show("Bem vindo " + nome + "! Tenha um bom dia!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
                                 else
                                 {
                                     if (DateTime.Now.Hour >= 12 && DateTime.Now.Hour < 18)
                                     {
-                                        MessageBox.Show("Bem vindo  " + nome + "!\nTenha uma boa tarde!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MessageBox.Show("Bem vindo  " + nome + "! Tenha uma boa tarde!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Bem vindo " + nome + "!\nTenha uma boa noite!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        MessageBox.Show("Bem vindo " + nome + "! Tenha uma boa noite!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     }
                                 }
                             }

@@ -43,7 +43,8 @@ namespace Kronus_v2
                MessageBox.Show("Erro ao tentar abrir a janela!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
+              
 
         #endregion
 

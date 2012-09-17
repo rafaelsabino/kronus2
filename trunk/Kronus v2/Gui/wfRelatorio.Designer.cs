@@ -62,9 +62,10 @@
             // 
             this.btGeraRelatorio.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btGeraRelatorio.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btGeraRelatorio.BackgroundImage")));
-            this.btGeraRelatorio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btGeraRelatorio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btGeraRelatorio.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.btGeraRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btGeraRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("btGeraRelatorio.Image")));
             this.btGeraRelatorio.Location = new System.Drawing.Point(371, 91);
             this.btGeraRelatorio.Name = "btGeraRelatorio";
             this.btGeraRelatorio.Size = new System.Drawing.Size(90, 30);
@@ -109,6 +110,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(1, 1);
@@ -119,12 +122,13 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(149, 4);
+            this.label3.Location = new System.Drawing.Point(176, 4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 21);
+            this.label3.Size = new System.Drawing.Size(121, 21);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Gerar relatórios.";
+            this.label3.Text = "Gerar relatório.";
             // 
             // panel2
             // 

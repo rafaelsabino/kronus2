@@ -105,9 +105,10 @@
             // 
             this.btConsultar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btConsultar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btConsultar.BackgroundImage")));
-            this.btConsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btConsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConsultar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.btConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btConsultar.Image = ((System.Drawing.Image)(resources.GetObject("btConsultar.Image")));
             this.btConsultar.Location = new System.Drawing.Point(519, 175);
             this.btConsultar.Name = "btConsultar";
             this.btConsultar.Size = new System.Drawing.Size(90, 30);
@@ -194,12 +195,12 @@
             // 
             // btExcluir
             // 
-            this.btExcluir.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btExcluir.BackColor = System.Drawing.Color.Transparent;
             this.btExcluir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btExcluir.BackgroundImage")));
             this.btExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btExcluir.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.btExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btExcluir.Location = new System.Drawing.Point(108, 3);
+            this.btExcluir.Location = new System.Drawing.Point(119, 3);
             this.btExcluir.Name = "btExcluir";
             this.btExcluir.Size = new System.Drawing.Size(56, 25);
             this.btExcluir.TabIndex = 9;
@@ -209,12 +210,12 @@
             // 
             // btSalvar
             // 
-            this.btSalvar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btSalvar.BackColor = System.Drawing.Color.Transparent;
             this.btSalvar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btSalvar.BackgroundImage")));
             this.btSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btSalvar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.btSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btSalvar.Location = new System.Drawing.Point(54, 2);
+            this.btSalvar.Location = new System.Drawing.Point(60, 2);
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(56, 25);
             this.btSalvar.TabIndex = 8;
@@ -224,7 +225,7 @@
             // 
             // btNovo
             // 
-            this.btNovo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btNovo.BackColor = System.Drawing.Color.Transparent;
             this.btNovo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btNovo.BackgroundImage")));
             this.btNovo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btNovo.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
@@ -290,6 +291,8 @@
             // pnFornecedor
             // 
             this.pnFornecedor.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnFornecedor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnFornecedor.BackgroundImage")));
+            this.pnFornecedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnFornecedor.Controls.Add(this.btNovo);
             this.pnFornecedor.Controls.Add(this.btExcluir);
             this.pnFornecedor.Controls.Add(this.btSalvar);

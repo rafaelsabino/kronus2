@@ -82,9 +82,10 @@
             // 
             this.btConsulta.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btConsulta.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btConsulta.BackgroundImage")));
-            this.btConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConsulta.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.btConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btConsulta.Image = ((System.Drawing.Image)(resources.GetObject("btConsulta.Image")));
             this.btConsulta.Location = new System.Drawing.Point(460, 141);
             this.btConsulta.Name = "btConsulta";
             this.btConsulta.Size = new System.Drawing.Size(90, 30);
@@ -198,6 +199,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.btCancelar);
             this.panel1.Controls.Add(this.btSalvar);
             this.panel1.Controls.Add(this.btNovo);
@@ -209,7 +212,7 @@
             // 
             // btCancelar
             // 
-            this.btCancelar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btCancelar.BackColor = System.Drawing.Color.Transparent;
             this.btCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btCancelar.BackgroundImage")));
             this.btCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btCancelar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
@@ -224,7 +227,7 @@
             // 
             // btSalvar
             // 
-            this.btSalvar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btSalvar.BackColor = System.Drawing.Color.Transparent;
             this.btSalvar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btSalvar.BackgroundImage")));
             this.btSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btSalvar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
@@ -239,7 +242,7 @@
             // 
             // btNovo
             // 
-            this.btNovo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btNovo.BackColor = System.Drawing.Color.Transparent;
             this.btNovo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btNovo.BackgroundImage")));
             this.btNovo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btNovo.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;

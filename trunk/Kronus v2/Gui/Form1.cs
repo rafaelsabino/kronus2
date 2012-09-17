@@ -46,7 +46,20 @@ namespace Kronus_v2
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Você está prestes a sair de sua conta.\nTem certeza que deseja continuar?", "Kronus", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes ){
-               
+
+                while (Application.OpenForms.Count > 1)
+                {
+                    Application.OpenForms[1].Dispose();
+                }
+                this.Tag = null;
+                this.mnPrincipal.Enabled = false;
+                this.administraçãoToolStripMenuItem.Visible = false;
+                this.relatóriosToolStripMenuItem.Visible = false;
+                this.fornecedoresToolStripMenuItem.Visible = false;
+                this.equipamentoProteçãoIndividualToolStripMenuItem.Visible = false;
+                this.comprasToolStripMenuItem.Visible = false;
+                this.funcionariosToolStripMenuItem.Visible = false;
+
                 utilCls.OpenForm(this, new login(this));
             }
             
