@@ -30,18 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wfEntrega));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wfEntrega));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcEntrega = new System.Windows.Forms.TabControl();
             this.tpEntrega = new System.Windows.Forms.TabPage();
             this.dgLogEntrega = new System.Windows.Forms.DataGridView();
@@ -127,39 +118,15 @@
             this.dgLogEntrega.AllowUserToDeleteRows = false;
             this.dgLogEntrega.AllowUserToResizeRows = false;
             this.dgLogEntrega.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgLogEntrega.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgLogEntrega.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgLogEntrega.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgLogEntrega.Location = new System.Drawing.Point(14, 159);
             this.dgLogEntrega.MultiSelect = false;
             this.dgLogEntrega.Name = "dgLogEntrega";
             this.dgLogEntrega.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgLogEntrega.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgLogEntrega.RowHeadersVisible = false;
             this.dgLogEntrega.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgLogEntrega.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgLogEntrega.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgLogEntrega.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgLogEntrega.Size = new System.Drawing.Size(855, 201);
             this.dgLogEntrega.TabIndex = 1;
@@ -208,9 +175,10 @@
             // 
             this.btConsultaFuncEnt.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btConsultaFuncEnt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btConsultaFuncEnt.BackgroundImage")));
-            this.btConsultaFuncEnt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btConsultaFuncEnt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConsultaFuncEnt.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.btConsultaFuncEnt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btConsultaFuncEnt.Image = ((System.Drawing.Image)(resources.GetObject("btConsultaFuncEnt.Image")));
             this.btConsultaFuncEnt.Location = new System.Drawing.Point(615, 61);
             this.btConsultaFuncEnt.Name = "btConsultaFuncEnt";
             this.btConsultaFuncEnt.Size = new System.Drawing.Size(90, 30);
@@ -395,9 +363,10 @@
             // 
             this.btConsultaEntregaVenc.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btConsultaEntregaVenc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btConsultaEntregaVenc.BackgroundImage")));
-            this.btConsultaEntregaVenc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btConsultaEntregaVenc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btConsultaEntregaVenc.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.btConsultaEntregaVenc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btConsultaEntregaVenc.Image = ((System.Drawing.Image)(resources.GetObject("btConsultaEntregaVenc.Image")));
             this.btConsultaEntregaVenc.Location = new System.Drawing.Point(606, 41);
             this.btConsultaEntregaVenc.Name = "btConsultaEntregaVenc";
             this.btConsultaEntregaVenc.Size = new System.Drawing.Size(90, 30);
@@ -431,38 +400,14 @@
             this.dgEntregaVenc.AllowUserToDeleteRows = false;
             this.dgEntregaVenc.AllowUserToResizeRows = false;
             this.dgEntregaVenc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgEntregaVenc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgEntregaVenc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgEntregaVenc.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgEntregaVenc.Location = new System.Drawing.Point(13, 122);
             this.dgEntregaVenc.MultiSelect = false;
             this.dgEntregaVenc.Name = "dgEntregaVenc";
             this.dgEntregaVenc.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgEntregaVenc.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgEntregaVenc.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgEntregaVenc.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgEntregaVenc.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgEntregaVenc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgEntregaVenc.Size = new System.Drawing.Size(857, 231);
             this.dgEntregaVenc.TabIndex = 0;
@@ -498,37 +443,13 @@
             this.dgVisaoEstoque.AllowUserToDeleteRows = false;
             this.dgVisaoEstoque.AllowUserToResizeRows = false;
             this.dgVisaoEstoque.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgVisaoEstoque.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgVisaoEstoque.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgVisaoEstoque.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgVisaoEstoque.Location = new System.Drawing.Point(6, 34);
             this.dgVisaoEstoque.MultiSelect = false;
             this.dgVisaoEstoque.Name = "dgVisaoEstoque";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgVisaoEstoque.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgVisaoEstoque.RowHeadersVisible = false;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgVisaoEstoque.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgVisaoEstoque.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgVisaoEstoque.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgVisaoEstoque.Size = new System.Drawing.Size(861, 301);
             this.dgVisaoEstoque.TabIndex = 0;
@@ -537,6 +458,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.btDeletar);
             this.panel1.Controls.Add(this.btCancelar);
             this.panel1.Controls.Add(this.btConsultar);
@@ -550,6 +473,7 @@
             // 
             // btDeletar
             // 
+            this.btDeletar.BackColor = System.Drawing.Color.Transparent;
             this.btDeletar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btDeletar.BackgroundImage")));
             this.btDeletar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btDeletar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
@@ -559,12 +483,12 @@
             this.btDeletar.Size = new System.Drawing.Size(56, 25);
             this.btDeletar.TabIndex = 12;
             this.toolTip1.SetToolTip(this.btDeletar, "Excluir entrega selecionada.");
-            this.btDeletar.UseVisualStyleBackColor = true;
+            this.btDeletar.UseVisualStyleBackColor = false;
             this.btDeletar.Click += new System.EventHandler(this.btDeletar_Click);
             // 
             // btCancelar
             // 
-            this.btCancelar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btCancelar.BackColor = System.Drawing.Color.Transparent;
             this.btCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btCancelar.BackgroundImage")));
             this.btCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btCancelar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
@@ -579,6 +503,7 @@
             // 
             // btConsultar
             // 
+            this.btConsultar.BackColor = System.Drawing.Color.Transparent;
             this.btConsultar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btConsultar.BackgroundImage")));
             this.btConsultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btConsultar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
@@ -588,12 +513,12 @@
             this.btConsultar.Size = new System.Drawing.Size(56, 25);
             this.btConsultar.TabIndex = 10;
             this.toolTip1.SetToolTip(this.btConsultar, "Consultar registro de entrega.");
-            this.btConsultar.UseVisualStyleBackColor = true;
+            this.btConsultar.UseVisualStyleBackColor = false;
             this.btConsultar.Click += new System.EventHandler(this.btConsultar_Click);
             // 
             // btSalvar
             // 
-            this.btSalvar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btSalvar.BackColor = System.Drawing.Color.Transparent;
             this.btSalvar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btSalvar.BackgroundImage")));
             this.btSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btSalvar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
@@ -608,7 +533,7 @@
             // 
             // btNovo
             // 
-            this.btNovo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btNovo.BackColor = System.Drawing.Color.Transparent;
             this.btNovo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btNovo.BackgroundImage")));
             this.btNovo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btNovo.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
