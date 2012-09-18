@@ -658,9 +658,7 @@ namespace Kronus_v2.Gui
                 MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 inicial();
             }   
-        }
-
-                 
+        }               
        
 
              
