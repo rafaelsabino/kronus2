@@ -200,7 +200,9 @@ namespace Kronus_v2.Gui
             errorProvider1.SetError(txtLogin, String.Empty);
             errorProvider1.SetError(txtSenha, String.Empty);
             errorProvider1.SetError(txtConfirma, String.Empty);        
-            carregaObjeto();            
+            carregaObjeto();
+            txtNome.ReadOnly = true;
+            txtLogin.ReadOnly = true;
             txtSenha.Focus();
             txtSenha.SelectAll();
             btNovo.Enabled = true;
@@ -212,10 +214,11 @@ namespace Kronus_v2.Gui
         public void carregaObjeto() {
             lbCodUsuario.Visible = true;
             txtCodigo.Visible = true;
-            txtNome.Enabled = true;
+            txtNome.Enabled = false;
             txtNome.CausesValidation = false;
+            txtLogin.CausesValidation = false;
             txtNome.ReadOnly = true;
-            txtLogin.Enabled = true;
+            txtLogin.Enabled =false;
             txtLogin.ReadOnly = true;
             txtSenha.Enabled = true;
             txtConfirma.Enabled = true;            

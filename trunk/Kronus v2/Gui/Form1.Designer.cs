@@ -125,8 +125,8 @@
             this.cadastrosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cadastrosToolStripMenuItem.Image")));
             this.cadastrosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(115, 34);
-            this.cadastrosToolStripMenuItem.Text = "Registros";
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(109, 34);
+            this.cadastrosToolStripMenuItem.Text = "Registro";
             this.cadastrosToolStripMenuItem.ToolTipText = "Acesso aos Registros.";
             // 
             // fornecedoresToolStripMenuItem
@@ -189,8 +189,8 @@
             this.relatóriosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("relatóriosToolStripMenuItem.Image")));
             this.relatóriosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
-            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(121, 34);
-            this.relatóriosToolStripMenuItem.Text = "Relatórios";
+            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(115, 34);
+            this.relatóriosToolStripMenuItem.Text = "Relatório";
             this.relatóriosToolStripMenuItem.ToolTipText = "Acesso aos relatórios.";
             this.relatóriosToolStripMenuItem.Visible = false;
             // 
