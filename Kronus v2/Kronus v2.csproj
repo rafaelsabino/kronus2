@@ -75,6 +75,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsEntregaFuncionario.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Gui\AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gui\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     <Compile Include="Relatorios\wfRelatorioCompras.Designer.cs">
       <DependentUpon>wfRelatorioCompras.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Gui\AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gui\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

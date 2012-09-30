@@ -54,6 +54,7 @@
             this.dgUsuário = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btCancelar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUsuário)).BeginInit();
@@ -65,6 +66,7 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.btCancelar);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btExcluir);
             this.panel1.Controls.Add(this.btSalvar);
@@ -91,11 +93,11 @@
             this.btExcluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btExcluir.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
             this.btExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btExcluir.Location = new System.Drawing.Point(117, 2);
+            this.btExcluir.Location = new System.Drawing.Point(176, 2);
             this.btExcluir.Name = "btExcluir";
             this.btExcluir.Size = new System.Drawing.Size(56, 25);
             this.btExcluir.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.btExcluir, "Cancelar / Excluir registro de usuário.");
+            this.toolTip1.SetToolTip(this.btExcluir, "Excluir registro de usuário.");
             this.btExcluir.UseVisualStyleBackColor = false;
             this.btExcluir.Click += new System.EventHandler(this.btExcluir_Click);
             // 
@@ -333,6 +335,21 @@
             this.errorProvider1.ContainerControl = this;
             this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
+            // btCancelar
+            // 
+            this.btCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btCancelar.BackgroundImage")));
+            this.btCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btCancelar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btCancelar.Location = new System.Drawing.Point(117, 2);
+            this.btCancelar.Name = "btCancelar";
+            this.btCancelar.Size = new System.Drawing.Size(56, 25);
+            this.btCancelar.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.btCancelar, "Cancelar registro de usuário.");
+            this.btCancelar.UseVisualStyleBackColor = false;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
+            // 
             // wfUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,5 +400,6 @@
         private System.Windows.Forms.DataGridView dgUsuário;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btCancelar;
     }
 }

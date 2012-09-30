@@ -98,7 +98,8 @@ namespace Kronus_v2.Gui
             chbAcesso.Enabled = true;
             txtConsulta.Enabled = false;
             btConsultar.Enabled = false;
-            btExcluir.Enabled = true;
+            btExcluir.Enabled = false;
+            btCancelar.Enabled = true;
             txtNome.Select();
 
 
@@ -145,24 +146,38 @@ namespace Kronus_v2.Gui
             int tAcesso = 1;
             if (String.IsNullOrEmpty(txtCodigo.Text))
             {
-                br.model.clsUsuário u = new br.model.clsUsuário();                
-                
-                try
-                {                  
-                    if (chbAcesso.Checked){
-                        tAcesso = 0;
-                    }        
-                    u.NomeUsuario = txtNome.Text;
-                    u.Loginusuario = txtLogin.Text;
-                    u.SenhaUsuario = txtSenha.Text;
-                    u.TipoAcesso = tAcesso;
-                    u.addUser();
-                    MessageBox.Show("Usuário adicionado com sucesso!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
+                br.model.clsUsuário user = new br.model.clsUsuário();
+                DataTable dt = user.SearchUsuario("login_user = '" + txtLogin.Text + "'");
+                int linha = dt.Rows.Count;
+                if (linha > 0)
                 {
-                    MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
+                    MessageBox.Show("Esse nome de autenticação já se encontra em uso.\nEscolha outro nome para autenticar-se!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtLogin.Text = String.Empty;
+                    errorProvider1.SetError(this.txtLogin, String.Empty);
+                    txtLogin.Focus();
+                    btSalvar.Enabled = false;
+                }
+                else
+                {
+                    try
+                    {
+                        br.model.clsUsuário u = new br.model.clsUsuário();
+                        if (chbAcesso.Checked)
+                        {
+                            tAcesso = 0;
+                        }
+                        u.NomeUsuario = txtNome.Text;
+                        u.Loginusuario = txtLogin.Text;
+                        u.SenhaUsuario = txtSenha.Text;
+                        u.TipoAcesso = tAcesso;
+                        u.addUser();
+                        MessageBox.Show("Usuário adicionado com sucesso!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    inicial();
                 }
                 
             }
@@ -185,12 +200,11 @@ namespace Kronus_v2.Gui
                 catch (Exception ex)
                 {   
                     MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
+                    
                 }
-                
+                inicial(); 
             }
-            limpaCampos();
-            inicial();
+                       
 
         }
 
@@ -207,7 +221,8 @@ namespace Kronus_v2.Gui
             txtSenha.SelectAll();
             btNovo.Enabled = true;
             btExcluir.Enabled = true;
-            btSalvar.Enabled = true;
+            btCancelar.Enabled = true;
+            btSalvar.Enabled = false;
             cargaGrid();
         }
 
@@ -300,17 +315,7 @@ namespace Kronus_v2.Gui
                         errorProvider1.SetError(this.txtLogin, String.Empty);
                         txtSenha.Focus();
                     }
-            }
-            br.model.clsUsuário u = new br.model.clsUsuário();
-            DataTable dt = u.SearchUsuario("login_user = '" + txtLogin.Text + "'");
-            int linha = dt.Rows.Count;
-            if (linha > 0)
-            {
-                MessageBox.Show("Esse nome de autenticação já se encontra em uso.\nEscolha outro nome para autenticar-se!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtLogin.Text = String.Empty;
-                errorProvider1.SetError(this.txtLogin, String.Empty);
-                txtLogin.Select();
-            }            
+            }           
                     
         }
 
@@ -371,6 +376,12 @@ namespace Kronus_v2.Gui
                 dgUsuário.Columns["Código"].Visible = false;
                 txtConsulta.Select();
             }
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            inicial();
+            limpaCampos();
         }               
 
     }

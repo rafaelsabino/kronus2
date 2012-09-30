@@ -50,12 +50,14 @@
             this.itensEntreguePeríodoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administraçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dataHora = new System.Windows.Forms.Label();
             this.data = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.mnPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -72,10 +74,11 @@
             this.inicioToolStripMenuItem,
             this.cadastrosToolStripMenuItem,
             this.relatóriosToolStripMenuItem,
-            this.administraçãoToolStripMenuItem});
+            this.administraçãoToolStripMenuItem,
+            this.aboutToolStripMenuItem});
             this.mnPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnPrincipal.Name = "mnPrincipal";
-            this.mnPrincipal.Size = new System.Drawing.Size(728, 38);
+            this.mnPrincipal.Size = new System.Drawing.Size(828, 38);
             this.mnPrincipal.TabIndex = 2;
             // 
             // inicioToolStripMenuItem
@@ -248,6 +251,14 @@
             this.usuáriosToolStripMenuItem.Text = "Usuários";
             this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click);
             // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.Image")));
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(82, 34);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -257,12 +268,13 @@
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 310);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(728, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(828, 22);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
+            this.toolStripStatusLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
@@ -277,7 +289,7 @@
             this.dataHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dataHora.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataHora.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataHora.Location = new System.Drawing.Point(622, 8);
+            this.dataHora.Location = new System.Drawing.Point(722, 8);
             this.dataHora.Name = "dataHora";
             this.dataHora.Size = new System.Drawing.Size(74, 23);
             this.dataHora.TabIndex = 8;
@@ -287,10 +299,22 @@
             this.data.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.data.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.data.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.data.Location = new System.Drawing.Point(534, 8);
+            this.data.Location = new System.Drawing.Point(634, 8);
             this.data.Name = "data";
             this.data.Size = new System.Drawing.Size(91, 23);
             this.data.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(552, 285);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(270, 20);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Torcomp Segurança no Trabalho";
             // 
             // Principal
             // 
@@ -298,7 +322,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(728, 332);
+            this.ClientSize = new System.Drawing.Size(828, 332);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.data);
             this.Controls.Add(this.dataHora);
             this.Controls.Add(this.statusStrip1);
@@ -351,6 +376,8 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
 
     }
 }

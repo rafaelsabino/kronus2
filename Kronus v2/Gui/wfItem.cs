@@ -41,6 +41,7 @@ namespace Kronus_v2
             txtConsultar.Text = "";
             txtConsultar.Enabled = true;
             btConsultar.Enabled = true;
+            btCancelar.Enabled = false;
             cbFornecedor.Text = "                  ";
             cbFornecedor.Enabled = false;
             btDeletar.Enabled = false;
@@ -124,9 +125,10 @@ namespace Kronus_v2
             carregaCombo();
             cbFornecedor.Enabled = true;
             btConsultar.Enabled = false;
+            btCancelar.Enabled = true;
             limpaCampos();                       
             txtCa.Select();
-            btDeletar.Enabled = true;           
+            btDeletar.Enabled = false;           
                                               
 
         }
@@ -215,32 +217,20 @@ namespace Kronus_v2
                 txtDescricao.Select();
             }
             else
-            {
-                br.model.clsItem i = new br.model.clsItem();                
-                DataTable dt = i.searchItem("nome_item ='" + txtNomeItem.Text + "' and tipo_item = '" + txtDescricao.Text + "' and tamanho_item = '" + txtTamanho.Text + "'");
-                int linha = dt.Rows.Count;
-                if (linha > 0)
-                {
-                    inicial();
-                    MessageBox.Show("Esse e. p. i. já está cadastrado!\nA operação foi cancelada.", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-
-                }
-                else
-                {
-                    if (clsFornecedor.validaCaracter(txtDescricao.Text))
-                    {
-                        errorProvider1.SetError(txtDescricao, "A descrição do e. p. i. não pode conter caracteres como: ', #, @, $. ");
-                        txtDescricao.Text = String.Empty;
-                        txtDescricao.Select();
-                    }
-                    else
-                    {
-                        errorProvider1.SetError(txtDescricao, String.Empty);
-                        txtEstoqueMin.Focus();
-                    }
-                }                
-            }
+              {
+                  if (clsFornecedor.validaCaracter(txtDescricao.Text))
+                  {
+                      errorProvider1.SetError(txtDescricao, "A descrição do e. p. i. não pode conter caracteres como: ', #, @, $. ");
+                      txtDescricao.Text = String.Empty;
+                      txtDescricao.Select();
+                  }
+                  else
+                  {
+                      errorProvider1.SetError(txtDescricao, String.Empty);
+                      txtEstoqueMin.Focus();
+                  }
+              }               
+            
         }
 
         private void txtEstoqueMin_Validating(object sender, CancelEventArgs e)
@@ -288,28 +278,39 @@ namespace Kronus_v2
         {
            
             if (String.IsNullOrEmpty(txtCodigo.Text))
-            {
-                 br.model.clsItem i = new br.model.clsItem();
-                try
+            {                
+                br.model.clsItem item = new br.model.clsItem();                
+                DataTable dt = item.searchItem("nome_item ='" + txtNomeItem.Text + "' and tipo_item = '" + txtDescricao.Text + "' and tamanho_item = '" + txtTamanho.Text + "'");
+                int linha = dt.Rows.Count;
+                if (linha > 0)
                 {
-                    i.CAItem = Convert.ToInt32(txtCa.Text);
-                    i.NomeItem = txtNomeItem.Text;
-                    i.TipoItem = txtDescricao.Text;
-                    i.TamanhoItem = txtTamanho.Text;
-                    i.QtdEstoque = 0;
-                    i.EstoqueMin = Convert.ToInt32(txtEstoqueMin.Text);
-                    i.Fornecedor = Convert.ToInt32(cbFornecedor.SelectedValue);
-                    i.addItem();
-                   
-                     MessageBox.Show("E. p. i. adicionado com sucesso!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    inicial();
+                    MessageBox.Show("Esse e. p. i. já está cadastrado!\nA operação foi cancelada.", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    inicial();
                 }
-                
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
+                    try
+                    {
+                        br.model.clsItem i = new br.model.clsItem();
+                        i.CAItem = Convert.ToInt32(txtCa.Text);
+                        i.NomeItem = txtNomeItem.Text;
+                        i.TipoItem = txtDescricao.Text;
+                        i.TamanhoItem = txtTamanho.Text;
+                        i.QtdEstoque = 0;
+                        i.EstoqueMin = Convert.ToInt32(txtEstoqueMin.Text);
+                        i.Fornecedor = Convert.ToInt32(cbFornecedor.SelectedValue);
+                        i.addItem();
+
+                        MessageBox.Show("E. p. i. adicionado com sucesso!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    inicial();
                 }
-                inicial();
             }
             else {
                 try
@@ -330,12 +331,11 @@ namespace Kronus_v2
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
                 }
-                
+                cargaGrid();
+                inicial();
             }
-            cargaGrid();            
-            inicial();
+            
         }
 
         public void limpaCampos() {
@@ -437,6 +437,14 @@ namespace Kronus_v2
             errorProvider1.SetError(txtEstoqueMin, String.Empty);
             errorProvider1.SetError(txtTamanho, String.Empty);
             btDeletar.Enabled = true;
+            btCancelar.Enabled = true;
+            txtCa.SelectAll();
+            txtCa.Focus();
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            inicial();
         }
 
              
