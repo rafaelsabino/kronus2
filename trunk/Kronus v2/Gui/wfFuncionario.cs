@@ -111,9 +111,9 @@ namespace Kronus_v2.Gui
                 System.Data.DataTable dt = f.searchFuncionario("nome_funcionario = '" + txtnome.Text + "'");
                 int linha = dt.Rows.Count;
                 if (linha > 0)
-                {
-                    inicial();
+                {                    
                     MessageBox.Show("Esse funcionário já está cadastrado!\nA operação foi cancelada.", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    inicial();
                 }
                 else {
                     try

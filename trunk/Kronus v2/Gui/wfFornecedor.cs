@@ -64,6 +64,7 @@ namespace Kronus_v2
             btNovo.Enabled = true;
             btSalvar.Enabled = false;
             btExcluir.Enabled = false;
+            btCancelar.Enabled = false;
             errorProvider1.SetError(this.txtNomeFornec, String.Empty);
             errorProvider1.SetError(this.txtemailFornec, String.Empty);
             cargaGrid();
@@ -83,7 +84,8 @@ namespace Kronus_v2
             txtNomeFornec.Enabled = true;
             mtTelFornec.Enabled = true;
             txtemailFornec.Enabled = true;
-            btExcluir.Enabled = true;
+            btExcluir.Enabled = false;
+            btCancelar.Enabled = true;
             txtNomeFornec.Select();
             cargaGrid();
            
@@ -101,56 +103,60 @@ namespace Kronus_v2
 
         private void btExcluir_Click(object sender, EventArgs e)
         {
-
-            if (String.IsNullOrEmpty(txtCodfornec.Text))
-            {
-                inicial();
-
-            }
-            else
-            {
-                clsFornecedor f = new clsFornecedor();
-                f.codigo = Convert.ToInt32(txtCodfornec.Text);
-                if (MessageBox.Show("Tem certeza que deseja excluir o fornecedor selecionado?", "Kronus", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
-                {
-                    try
-                    {
-                        f.deleteFornecedor();
-                        MessageBox.Show("Fornecedor excuido com sucesso!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        inicial();
-                        limpaCampos();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        inicial();
-                    }
-                }
-                              
-                
-            }
+            clsFornecedor f = new clsFornecedor();
+            f.codigo = Convert.ToInt32(txtCodfornec.Text);
+            if (MessageBox.Show("Tem certeza que deseja excluir o fornecedor selecionado?", "Kronus", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+             {
+                 try
+                 {
+                     f.deleteFornecedor();
+                     MessageBox.Show("Fornecedor excuido com sucesso!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                     inicial();
+                     limpaCampos();
+                 }
+                 catch (Exception ex)
+                 {
+                     MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     inicial();
+                 }
+             }
         }
 
         private void btSalvar_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(txtCodfornec.Text))
             {
-                try
+                clsFornecedor forn = new clsFornecedor();
+                DataTable dt = forn.searchFornecedor("nome_fornecedor = '" + txtNomeFornec.Text + "'");
+                int linha = dt.Rows.Count;
+                dgFornec.DataSource = dt;
+
+                if (linha > 0)
                 {
-                    clsFornecedor f = new clsFornecedor();
+                    inicial();
+                    MessageBox.Show("O fornecedor já está cadastrado.\nOperação cancelada.", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpaCampos();
+                    inicial();                                    
+                }else{
+                    try
+                    {
+                        clsFornecedor f = new clsFornecedor();
 
-                    f.nome = txtNomeFornec.Text;
-                    f.telefone = mtTelFornec.Text;
-                    f.email = txtemailFornec.Text;
+                        f.nome = txtNomeFornec.Text;
+                        f.telefone = mtTelFornec.Text;
+                        f.email = txtemailFornec.Text;
 
-                    f.addFornecedor();
-                    MessageBox.Show("Fornecedor adicionado com sucesso!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        f.addFornecedor();
+                        MessageBox.Show("Fornecedor adicionado com sucesso!", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
                    
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                     limpaCampos();
+                     inicial();
+                }                
             }
             else {
                 try
@@ -168,14 +174,11 @@ namespace Kronus_v2
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    inicial();
+                    MessageBox.Show(ex.Message, "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Error);                    
                 }
-                
-            }
-            limpaCampos();
-            inicial();
-            
+                limpaCampos();
+                inicial();                
+            }                       
         }
 
         public void carregaObjeto() {
@@ -201,9 +204,10 @@ namespace Kronus_v2
             errorProvider1.SetError(this.txtemailFornec, String.Empty);
             btNovo.Enabled = true;
             btExcluir.Enabled = true;
-
-            
-
+            txtNomeFornec.SelectAll();
+            txtNomeFornec.Focus();
+            btSalvar.Enabled = false;
+            btCancelar.Enabled = true;
         }
 
         
@@ -250,35 +254,21 @@ namespace Kronus_v2
                 txtNomeFornec.Select();
             }
             else {
-                clsFornecedor f = new clsFornecedor();
-                DataTable dt = f.searchFornecedor("nome_fornecedor = '" + txtNomeFornec.Text + "'");
-                int linha = dt.Rows.Count;
-                dgFornec.DataSource = dt;
-
-                if (linha > 0)
-                {
-                    inicial();
-                    MessageBox.Show("O fornecedor já está cadastrado.\nOperação cancelada.", "Kronus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
-                                    
-                }
-                else {
-                    if (clsFornecedor.validaCaracter(txtNomeFornec.Text))
-                    {
-                        errorProvider1.SetError(txtNomeFornec, "O nome do fornecedor não pode conter caracteres como: ', #, @, $ ");
-                        txtNomeFornec.Text = String.Empty;
-                        txtNomeFornec.Select();
-                        btSalvar.Enabled = false;
-                    }
-                    else
-                    {
-                        errorProvider1.SetError(this.txtNomeFornec, String.Empty);
-                        mtTelFornec.Focus();
-                    }
-                    cargaGrid();
-                }
-                
-            }
+                 if (clsFornecedor.validaCaracter(txtNomeFornec.Text))
+                  {
+                      errorProvider1.SetError(txtNomeFornec, "O nome do fornecedor não pode conter caracteres como: ', #, @, $ ");
+                      txtNomeFornec.Text = String.Empty;
+                      txtNomeFornec.Select();
+                      btSalvar.Enabled = false;
+                  }
+                  else
+                  {
+                      errorProvider1.SetError(this.txtNomeFornec, String.Empty);
+                      mtTelFornec.Focus();
+                  }
+                  cargaGrid();
+                }              
+            
         }      
         
                 
@@ -313,6 +303,14 @@ namespace Kronus_v2
         private void mtTelFornec_Validating(object sender, CancelEventArgs e)
         {
             txtemailFornec.Focus();
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            inicial();
+            txtemailFornec.CausesValidation = false;
+            errorProvider1.SetError(txtemailFornec, String.Empty);
+            txtConsultaFornec.Focus();
         }
 
        

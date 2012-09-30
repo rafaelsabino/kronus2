@@ -121,6 +121,11 @@ namespace Kronus_v2
             utilCls.relatorio = 3;
         }
 
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            utilCls.OpenForm(this, new Gui.AboutBox1());
+        }
+
                             
     }
 }
